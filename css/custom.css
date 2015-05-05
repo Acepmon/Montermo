@@ -1,0 +1,73 @@
+#aboutus .tab-content ul {
+    list-style-type: circle;
+}
+#aboutus .nav-pills li {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-left: 5px solid #428bca;
+    font-size: 14px;
+}
+#aboutus .nav-pills li.active a {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    background: none;
+    color: #1B86C7;
+    font-weight: bold;
+    text-decoration: underline;
+}
+#aboutus .tab-content p,
+#aboutus .tab-content h4,
+#aboutus .tab-content li,
+#aboutus .tab-content dt,
+#aboutus .tab-content dd {
+    
+}
+
+.news_post {
+    border-bottom: 1px solid #eee;
+    padding-top: 30px;
+    padding-bottom: 50px;
+}
+.news_post img {
+    margin: 10px 0px;
+}
+.news_post .btn {
+    margin-top: 15px;
+}
+.news_post .news_post_desc {
+    margin-top: 15px;
+}
+.news_post p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.brand {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+.brand p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.brand ul {
+    list-style-type: circle;
+}
+.brand ul > li {
+    margin-left: 15px;
+}
+.brand img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0px;
+}
+
+.brand .row:first-child {
+    border: 1px solid #eee;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+.brand .row:first-child img {
+    padding: 10px;
+}
