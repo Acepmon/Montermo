@@ -96,19 +96,47 @@ http://www.templatemo.com/preview/templatemo_409_travel
             <div class="row">
                 <div class="our-listing owl-carousel">
                     <!-- Image width : 263px and height : 195px -->
-                    <div class="list-item">
+
+                    <?php
+                        $db = new db\Connector();
+                        $db->query("select * from brands where brand_lang = 'english'");
+                        foreach ($db->resultset() as $row) {
+                            $id = $row['brand_id'];
+                            $title = $row['brand_title'];
+                            $logo = $row['brand_logo'];
+                            $s_desc = $row['brand_short_desc'];
+                            ?>
+
+                            <div class="list-item">
+                                <div class="list-thumb">
+                                    <div class="title">
+                                        <h4><?php echo $title; ?></h4>
+                                    </div>
+                                    <img src="../images/brand_images/<?php echo $logo; ?>" alt="<?php echo $title; ?>">
+                                </div>
+                                <div class="list-content">
+                                    <h5></h5>
+                                    <span><?php echo $s_desc; ?></span>
+                                    <a href="brandsSpecific.php?brands_id=<?php echo $id; ?>" class="price-btn">Read more</a>
+                                </div>
+                            </div>
+                            <?php
+                        }
+                    ?>
+
+                    <!-- <div class="list-item">
                         <div class="list-thumb">
                             <div class="title">
                                 <h4>FLOWROX</h4>
                             </div>
                             <img src="../images/brands/flowrox/flowrox_logo.jpg" alt="Flowrox">
-                        </div> <!-- /.list-thumb -->
+                        </div>
                         <div class="list-content">
                             <h5></h5>
                             <span>Heavy duty valves, pumps and system</span>
                             <a href="brandsSpecific.php?brands_id=1" class="price-btn">Read more</a>
-                        </div> <!-- /.list-content -->
-                    </div> <!-- /.list-item -->
+                        </div>
+                    </div>
 
                     <div class="list-item">
                         <div class="list-thumb">
@@ -207,7 +235,7 @@ http://www.templatemo.com/preview/templatemo_409_travel
                             <a href="brandsSpecific.php?brands_id=8" class="price-btn">Read more</a>
                         </div>
                     </div>
-
+ -->
                 </div> <!-- /.our-listing -->
             </div> <!-- /.row -->
         </div> <!-- /.container -->

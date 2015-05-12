@@ -43,8 +43,24 @@ $(document).ready(function() {
     });
     $("#brand_edit").click(function() {
         var id = $(this).attr("value");
-        $.post("../backend/brand_editing.php", {get_values : "get", id : id}, function(data) {
-             
+        $.post("../backend/brand_editing.php", {action : "get", id : id}, function(data) {
+            var out = data.split(":::");
+            console.log(out);
+            var id = out[0];
+            var title = out[1];
+            var s_desc = out[2];
+            var desc = out[3];
+            var logo = out[4];
+            var lang = out[5];
+            $("#brand_edit_title").val(title);
+            $("#brand_edit_s_desc").val(s_desc);
+            $("#brand_edit_desc").val(desc);
+            $("#brand_edit_logo").attr("src", "../../images/brand_images/"+logo);
+            if (lang === "english") {
+                $("#brand_edit_lang").attr('selectedIndex', 0);
+            } else if (lang === "mongolian") {
+                $("#brand_edit_lang").attr('selectedIndex', 1);
+            }
         });
     });
 });

@@ -126,9 +126,9 @@
                         foreach ($res as $row) {
                             $id = $row['brand_id'];
                             $title = $row['brand_title'];
+                            $s_desc = $row['brand_short_desc'];
                             $desc = $row['brand_description'];
                             $logo = $row['brand_logo'];
-                            $img = $row['brand_img'];
                             $lang = $row['brand_lang'];
                         ?>
                         <div class="panel panel-default">
@@ -139,9 +139,6 @@
                             </div>
                             <div id="brands_group_item<?php echo $id; ?>_collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="brands_group_item<?php echo $id; ?>_heading">
                                 <div class="panel-body">
-                                    <div class="col-md-12 margin-10">
-                                        <img src="../../images/brand_images/<?php echo $img; ?>" alt="Brands own image" class="img-responsive">
-                                    </div>
                                     <div class="col-md-4 margin-10">
                                         <img src="../../images/brand_images/<?php echo $logo; ?>" alt="Logo" class="img-responsive">
                                     </div>
@@ -149,7 +146,10 @@
                                         <h2><?php echo $title; ?></h2>
                                     </div>
                                     <div class="col-md-12 margin-10">
-                                        <pre><?php echo $desc; ?></pre>
+                                        <h3><?php echo $s_desc; ?></h3>
+                                    </div>
+                                    <div class="col-md-12 margin-10">
+                                        <?php echo $desc; ?>
                                     </div>
                                 </div>
                                 <div class="panel-footer">
@@ -177,10 +177,14 @@
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                             <h3>Add new brand</h3>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body" id="output_modal_content">
                             <fieldset class="form-group">
                                 <label for="brand_title">Title</label>
                                 <input type="text" class="form-control" name="brand_title" required>
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <label for="brand_short_desc">Short Description</label>
+                                <input type="text" class="form-control" name="brand_short_desc" required>
                             </fieldset>
                             <fieldset class="form-group">
                                 <label for="brand_description">Description</label>
@@ -190,10 +194,6 @@
                                 <fieldset class="form-group">
                                     <label for="brand_logo">Logo</label>
                                     <input type="file" name="brand_logo" accept="image/*" required>
-                                </fieldset>
-                                <fieldset class="form-group">
-                                    <label for="brand_img">Header Image</label>
-                                    <input type="file" name="brand_img" accept="image/*" required>
                                 </fieldset>
                             </div>
                             <div class="col-sm-6">
@@ -229,8 +229,12 @@
                                 <input type="text" class="form-control" id="brand_edit_title" name="brand_title" value="" required>
                             </fieldset>
                             <fieldset class="form-group">
+                                <label for="brand_short_desc">Short Description</label>
+                                <input type="text" name="brand_short_desc" id="brand_edit_s_desc" class="form-control">
+                            </fieldset>
+                            <fieldset class="form-group">
                                 <label for="brand_description">Description</label>
-                                <textarea class="form-control" id="brand_edit_desc" rows="10" required></textarea>
+                                <textarea class="form-control" name="brand_description" id="brand_edit_desc" rows="10" required></textarea>
                             </fieldset>
                             <fieldset class="form-group col-sm-6">
                                 <img src="../../images/logo.png" id="brand_edit_logo" class="img-responsive">
@@ -239,14 +243,14 @@
                                 <label for="brand_logo">Change Logo</label>
                                 <input type="file" name="brand_logo" required>
                             </fieldset>
-                            <fieldset class="form-group col-sm-6">
-                                <img src="../../images/about_1.jpg" id="brand_edit_img" class="img-responsive">
-                            </fieldset>
-                            <fieldset class="form-group col-sm-6">
-                                <label for="brand_img">Change Header</label>
-                                <input type="file" name="brand_img" required>
-                            </fieldset>
                             <div class="clearfix"></div>
+                            <fieldset class="form-group">
+                                <label for="brand_lang">Language</label>
+                                <select name="brand_lang" id="brand_edit_lang" selectedIndex="0" class="form-control">
+                                    <option>English</option>
+                                    <option>Mongolian</option>
+                                </select>
+                            </fieldset>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
