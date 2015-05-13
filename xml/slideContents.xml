@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<slides>
+	<slide lang="english" id="1">
+		<title>Consulting</title>
+		<content>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat error voluptas illum commodi cum, sapiente alias voluptates aspernatur enim earum et, quasi molestiae, illo maxime omnis cumque officiis delectus at.</content>
+		<image>templatemo_slide_1.jpg</image>
+		<link>#</link>
+	</slide>
+	<slide lang="english" id="2">
+		<title>Maintenance</title>
+		<content>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum nibh sit amet felis mattis, eu convallis risus egestas</content>
+		<image>templatemo_slide_2.jpg</image>
+		<link>#</link>
+	</slide>
+	<slide lang="english" id="3">
+		<title>Installing</title>
+		<content>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum nibh sit amet felis mattis, eu convallis risus egestas</content>
+		<image>templatemo_slide_3.jpg</image>
+		<link>#</link>
+	</slide>
+	<slide lang="mongolian" id="4">
+		<title>Зөвлөмж</title>
+		<content>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum nibh sit amet felis mattis, eu convallis risus egestas</content>
+		<image>templatemo_slide_1.jpg</image>
+		<link>#</link>
+	</slide>
+	<slide lang="mongolian" id="5">
+		<title>Техник үйлчилгээ</title>
+		<content>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum nibh sit amet felis mattis, eu convallis risus egestas</content>
+		<image>templatemo_slide_2.jpg</image>
+		<link>#</link>
+	</slide>
+	<slide lang="mongolian" id="6">
+		<title>Суулгалт</title>
+		<content>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum nibh sit amet felis mattis, eu convallis risus egestas</content>
+		<image>templatemo_slide_3.jpg</image>
+		<link>#</link>
+	</slide>
+</slides>

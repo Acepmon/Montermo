@@ -28,7 +28,6 @@ if (!empty($title) || !empty($desc) || !empty($s_desc)) {
 
 	$logo_type = explode("/", $logo_type)[1];
 
-
 	$target_dir = "../../images/brand_images/";
 	$cont_dir = "brand_".$id."/";
 
@@ -52,6 +51,6 @@ if (!empty($title) || !empty($desc) || !empty($s_desc)) {
 	$db->bind(":lang", $lang);
 	$db->execute();
 }
-header ("Location: ../pages/brand.php");
+header ("Location: ../pages/brand.php");	
 
 ?>

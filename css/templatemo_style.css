@@ -392,6 +392,7 @@ a.toggle-menu {
     font-size: 28px;
     padding: 15px 20px;
     display: inline-block;
+    line-height: 30px;
 }
 
 .flex-caption h3.title {

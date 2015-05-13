@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2015 at 10:07 AM
+-- Generation Time: May 13, 2015 at 02:34 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -150,7 +150,15 @@ CREATE TABLE IF NOT EXISTS `products` (
   PRIMARY KEY (`product_id`),
   KEY `product_id` (`product_id`),
   KEY `FKproducts185952` (`brands_brand_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=11 ;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`product_id`, `brands_brand_id`, `product_name`, `product_description`, `product_lang`) VALUES
+(8, 34, 'asndonasodnaos', 'ansodnsaodnosandoksanodnaso', 'english'),
+(9, 41, 'TYCO LIKE THE TACO', '<h1>Yeah like the taco</h1>', 'english');
 
 -- --------------------------------------------------------
 
@@ -163,6 +171,41 @@ CREATE TABLE IF NOT EXISTS `product_img` (
   `products_product_id` int(100) NOT NULL,
   KEY `FKproduct_im148295` (`products_product_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `product_img`
+--
+
+INSERT INTO `product_img` (`img_url`, `products_product_id`) VALUES
+('product_0.jpg', 9);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `slides`
+--
+
+CREATE TABLE IF NOT EXISTS `slides` (
+  `slide_id` int(11) NOT NULL AUTO_INCREMENT,
+  `slide_title` varchar(255) COLLATE utf8_bin NOT NULL,
+  `slide_description` text COLLATE utf8_bin NOT NULL,
+  `slide_link` varchar(255) COLLATE utf8_bin NOT NULL,
+  `slide_lang` varchar(50) COLLATE utf8_bin NOT NULL,
+  `slide_image` varchar(150) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`slide_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=7 ;
+
+--
+-- Dumping data for table `slides`
+--
+
+INSERT INTO `slides` (`slide_id`, `slide_title`, `slide_description`, `slide_link`, `slide_lang`, `slide_image`) VALUES
+(1, 'Consulting', 'Loremnsaj absjif basb iasbod baksdblasbf kbdkgfksdbgfkg bdfkg d', '#', 'english', 'templatemo_slide_1.jpg'),
+(2, 'Maintenance', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum nibh sit amet felis mattis, eu convallis risus egestas', '#', 'english', 'templatemo_slide_2.jpg'),
+(3, 'Installing', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum nibh sit amet felis mattis, eu convallis risus egestas', '#', 'english', 'templatemo_slide_3.jpg'),
+(4, 'Зөвлөмж', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum nibh sit amet felis mattis, eu convallis risus egestas', '#', 'mongolian', 'templatemo_slide_1.jpg'),
+(5, 'Техник үйлчилгээ', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum nibh sit amet felis mattis, eu convallis risus egestas', '#', 'mongolian', 'templatemo_slide_2.jpg'),
+(6, 'Суулгалт', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum nibh sit amet felis mattis, eu convallis risus egestas', '#', 'mongolian', 'templatemo_slide_3.jpg');
 
 -- --------------------------------------------------------
 

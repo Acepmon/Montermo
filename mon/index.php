@@ -40,54 +40,31 @@ http://www.templatemo.com/preview/templatemo_409_travel
 
         <div class="flexslider">
             <ul class="slides">
+                <?php
+                $db = new db\Connector();
+                $db->query("select * from slides where slide_lang = 'mongolian'");
+                $res = $db->resultset();
+                foreach ($res as $slide) {
+                ?>
                 <li>
                     <div class="overlay"></div>
-                    <img src="../images/templatemo_slide_1.jpg" alt="Special 1">
+                    <img src="../images/<?php echo $slide['slide_image']; ?>" alt="Special 1">
                     <div class="container">
                         <div class="row">
                             <div class="col-md-5 col-lg-4">
                                 <div class="flex-caption visible-lg">
-                                    <span class="price">Consulting</span>
+                                    <span class="price"><?php echo $slide['slide_title']; ?></span>
                                     <h3 class="title"></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum nibh sit amet felis mattis, eu convallis risus egestas</p>
-                                    <a href="#" class="slider-btn">Learn more</a>
+                                    <p><?php echo $slide['slide_description']; ?></p>
+                                    <a href="<?php echo $slide['slide_link']; ?>" class="slider-btn">Learn more</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </li>
-                <li>
-                    <div class="overlay"></div>
-                    <img src="../images/templatemo_slide_2.jpg" alt="Special 2">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-5 col-lg-4">
-                                <div class="flex-caption visible-lg">
-                                    <span class="price">Maintenance</span>
-                                    <h3 class="title"></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum nibh sit amet felis mattis, eu convallis risus egestas.</p>
-                                    <a href="#" class="slider-btn">View more</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="overlay"></div>
-                    <img src="../images/templatemo_slide_3.jpg" alt="Special 3">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-5 col-lg-4">
-                                <div class="flex-caption visible-lg">
-                                    <span class="price">Installing</span>
-                                    <h3 class="title"></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum nibh sit amet felis mattis, eu convallis risus egestas.</p>
-                                    <a href="#" class="slider-btn">See more</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
+                <?php
+                }
+                ?>
             </ul>
         </div> <!-- /.flexslider -->
 

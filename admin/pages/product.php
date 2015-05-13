@@ -107,31 +107,22 @@
         <div id="page-wrapper">
             <div class="row" id="product">
                 <div class="col-lg-12" id="brands">
+                    <?php
+                        $db = new db\Connector();
+                        $db->query("select * from brands order by brand_id desc");
+                        $res = $db->resultset();
+                    ?>
                     <h1 class="page-header">Product</h1>
                     <p>
                         <a href="#product_add_modal" class="btn btn-success" data-toggle="modal">
                             <span class="glyphicon glyphicon-plus"></span> Add new product
                         </a>
                     </p>
-                    <form class="form-inline">
-                        <fieldset class="form-group">
-                            <label for="select">Choose brand:</label>
-                            <select class="form-control">
-                                <option>asd</option>
-                                <option>asss</option>
-                                <option>as</option>
-                                <option>sa</option>
-                            </select>
-                            <input type="text" placeholder="search..." class="form-control">
-                            <input type="button" value="Search" class="form-control">
-                        </fieldset>
-                    </form>
-                    <hr>
+                    <h5 class='text-info'>
+                        Click on brand item to expand products!
+                    </h5>
                     <div class="panel-group" id="brands_group" role="tablist" aria-multiselectable="true">
                         <?php
-                        $db = new db\Connector();
-                        $db->query("select * from brands order by brand_id desc");
-                        $res = $db->resultset();
 
                         if (empty($res)) {
                             echo "<div class='alert alert-warning'><span class='glyphicon glyphicon-warning-sign'></span> There are no brands!</div>";
@@ -144,31 +135,45 @@
                             $desc = $row['brand_description'];
                             $logo = $row['brand_logo'];
                             $lang = $row['brand_lang'];
+
+                            $db->query("select * from products where brands_brand_id = :brand_id");
+                            $db->bind(":brand_id", $id);
+                            $products = $db->resultset();
                         ?>
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="brands_group_item<?php echo $id; ?>_heading" data-target="#brands_group_item<?php echo $id; ?>_collapse" data-toggle="collapse" data-parent="#brands_group" aria-expanded="true" aria-controls="brands_group_item<?php echo $id; ?>_collapse">
-                                <h4 class="panel-title">
-                                    <?php echo $title." - ".ucfirst($lang); ?>
+                                <h4 class="panel-title clearfix">
+                                    <?php echo $title." - ".ucfirst($lang)." <span class='badge pull-right'>".count($products)."</span>"; ?>
                                 </h4>
                             </div>
                             <div id="brands_group_item<?php echo $id; ?>_collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="brands_group_item<?php echo $id; ?>_heading">
                                 <?php
-                                $db->query("select * from products where brands_brand_id = :brand_id");
-                                $db->bind(":brand_id", $id);
-                                $products = $db->resultset();
-                                // echo "<pre>", print_r($products), "</pre>";
+                                if (empty($products)) {
+                                    echo "<div class='panel-body'><div class='alert alert-warning' style='margin-bottom: 0px;'><span class='glyphicon glyphicon-warning-sign'></span> No products!</div></div>";
+                                } else {
+                                    echo "<ul class='list-group'>";
+                                    foreach ($products as $product) {
+                                        $product_name = $product['product_name'];
+                                        $product_lang = $product['product_lang'];
+                                        echo "<li class='list-group-item clearfix'>";
+                                        echo "<a href='#product_collapse_".$product['product_id']."' data-toggle='collapse'>".$product_name." - ".ucfirst($product_lang)."</a>";
+                                        echo "<span class='pull-right'>";
+                                        echo "<a href='' class='btn btn-warning'><span class='glyphicon glyphicon-pencil'></span> Edit</a> ";
+                                        echo "<a href='../backend/product_deleting.php?del_product_id=".$product['product_id']."&brand_id=".$id."' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span> Delete</a>";
+                                        echo "</span>";
+                                        echo "<div id='product_collapse_".$product['product_id']."' class='collapse' style='padding-top: 10px;'>";
+                                        echo "<p>".$product['product_description']."</p>";
+                                        $db->query("select img_url from product_img where products_product_id = :id");
+                                        $db->bind(":id", $product['product_id']);
+                                        foreach ($db->resultset() as $r) {
+                                            echo "<img src='../../images/brand_images/brand_".$id."/product_".$product['product_id']."/".$r['img_url']."' class='img-responsive'>";
+                                        }
+                                        echo "</div>";
+                                        echo "</li>";
+                                    }
+                                    echo "</ul>";
+                                }
                                 ?>
-                                <ul class="list-group">
-                                    <li class="list-group-item">
-                                        
-                                    </li>
-                                    <li class="list-group-item">
-                                        
-                                    </li>
-                                    <li class="list-group-item">
-                                        
-                                    </li>
-                                </ul>
                             </div>
                         </div>
                         <?php
@@ -181,57 +186,57 @@
         </div>
 
         <div id="product_add_modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <form id="brand_add_form" method="POST" action="../backend/brand_adding.php" enctype="multipart/form-data">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h3>Add new product</h3>
-                        </div>
-                        <div class="modal-body" id="output_modal_content">
-                            <form action="../backend/product_adding.php">
-                                <fieldset class="form-group">
-                                    <label for="product_name">Name</label>
-                                    <input type="text" name="product_name" class="form-control">
-                                </fieldset>
-                                <fieldset class="form-group">
-                                    <label for="product_desc">Description</label>
-                                    <textarea name="product_desc" cols="30" rows="10" class="form-control"></textarea>
-                                </fieldset>
-                                <fieldset class="form-group">
-                                    <label for="product_lang">Language</label>
-                                    <select name="product_lang" class="form-control">
-                                        <option>English</option>
-                                        <option>Mongolian</option>
-                                    </select>
-                                </fieldset>
-                                <fieldset class="form-group">
-                                    <label for="product_brand">Product Brand</label>
-                                    <select name="product_brand" class="form-control">
-                                        <option>Flowrox</option>
-                                        <option>Flowrox</option>
-                                        <option>Flowrox</option>
-                                        <option>Flowrox</option>
-                                    </select>
-                                </fieldset>
-                                <fieldset class="form-group">
-                                    <label for="product_img">Images</label>
-                                    <input name="product_img[]" type="file" multiple="multiple" accept="image/*">
-                                </fieldset>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-success">Submit Data</button>
-                        </div>
-                        </form>
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form id="brand_add_form" method="POST" action="../backend/product_adding.php" enctype="multipart/form-data">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h3>Add new product</h3>
                     </div>
+                    <div class="modal-body" id="output_modal_content">
+                        <fieldset class="form-group">
+                            <label for="product_name">Name</label>
+                            <input type="text" name="product_name" class="form-control">
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="product_desc">Description</label>
+                            <textarea name="product_desc" cols="30" rows="10" class="form-control"></textarea>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="product_lang">Language</label>
+                            <select name="product_lang" class="form-control">
+                                <option>English</option>
+                                <option>Mongolian</option>
+                            </select>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="product_brand">Product Brand</label>
+                            <select name="product_brand" class="form-control">
+                                <option></option>
+                                <?php
+                                $db->query("select brand_id, brand_title, brand_lang from brands");
+                                $res = $db->resultset();
+                                foreach ($res as $r) {
+                                    echo "<option value='".$r['brand_id']."'>".$r['brand_title']." - ".ucfirst($r['brand_lang'])."</option>";
+                                }
+                                ?>
+                            </select>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="product_img">Images</label>
+                            <input name="product_img[]" type="file" multiple="multiple" accept="image/*">
+                        </fieldset>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-success">Submit Data</button>
+                    </div>
+                    </form>
                 </div>
             </div>
-        <!-- /#page-wrapper -->
+        </div>
 
     </div>
-    <!-- /#wrapper -->
 
     <!-- jQuery -->
     <script src="../bower_components/jquery/dist/jquery.min.js"></script>

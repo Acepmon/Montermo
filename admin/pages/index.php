@@ -108,16 +108,12 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Dashboard</h1>
-                    <div ui-view></div>
                 </div>
                 <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-            <div class="row">
                 
                 <div class="col-lg-12">
                     <div class="col-lg-3">
-                        <div class="well">
+                        <div class="well well-md">
                             <h3 class="text-center">
                                 <a href="news.php">
                                     News Section
@@ -126,7 +122,7 @@
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <div class="well">
+                        <div class="well well-md">
                             <h3 class="text-center">
                                 <a href="brand.php">
                                     Brands Section
@@ -135,7 +131,7 @@
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <div class="well">
+                        <div class="well well-md">
                             <h3 class="text-center">
                                 <a href="product.php">
                                     Product Section
@@ -144,7 +140,7 @@
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <div class="well">
+                        <div class="well well-md">
                             <h3 class="text-center">
                                 <a href="inbox.php">
                                     Inbox Section
@@ -157,6 +153,116 @@
             </div>
             <!-- /.row -->
             <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Slides</h1>
+                </div>
+                <div class="col-lg-12">
+                    <ul class="nav nav-tabs nav-justified">
+                        <li class="active"><a href="#slide_english" data-toggle="tab">English</a></li>
+                        <li><a href="#slide_mongolian" data-toggle="tab">Mongolian</a></li>
+                    </ul>
+                    <?php 
+                    $db = new db\Connector();
+                    ?>
+                    <div class="tab-content" style="border: 1px solid #ddd; border-top: none; margin-top: 0px; padding-top: 10px;">
+                        <div class="tab-pane active" id="slide_english">
+                            <?php
+                            $db->query("select * from slides where slide_lang = 'english'");
+                            $res = $db->resultset();
+                            foreach ($res as $slide) {
+                            ?>
+                            <div class="container-fluid" style="margin-top: 25px; margin-bottom: 20px;">
+                                <div class="col-md-8">
+                                    <img src="../../images/<?php echo $slide['slide_image']; ?>" alt="" class="img-responsive">
+                                </div>
+                                <div class="col-md-4 well well-md">
+                                    <form action="../backend/slideSave.php" method="POST">
+                                        <fieldset class="form-group">
+                                            <input type="hidden" value="<?php echo $slide['slide_id']; ?>" name="slide_id">
+                                            <label for="slide_title">Title</label>
+                                            <input type="text" value="<?php echo $slide['slide_title']; ?>" class="form-control" name="slide_title" required>
+                                        </fieldset>
+                                        <fieldset class="form-group">
+                                            <label for="slide_desc">Description</label>
+                                            <textarea class="form-control" name="slide_desc" rows="10" required><?php echo $slide['slide_description']; ?></textarea>
+                                        </fieldset>
+                                        <fieldset class="form-group">
+                                            <label for="slide_link">Link</label>
+                                            <input type="text" class="form-control" name="slide_link" value="<?php echo $slide['slide_link']; ?>" required>
+                                        </fieldset>
+                                        <fieldset class="form-group">
+                                            <label for="slide_lang">Language</label>
+                                            <select class="form-control" name="slide_lang" required>
+                                                <option <?php if ($slide['slide_lang'] == "english") echo "selected"; ?>>English</option>
+                                                <option <?php if ($slide['slide_lang'] == "mongolian") echo "selected"; ?>>Mongolian</option>
+                                            </select>
+                                        </fieldset>
+                                        <fieldset class="form-group">
+                                            <label for="slide_image">Change slide image</label><br>
+                                            <input type="checkbox" value="Change" name="slide_image_change"> Change
+                                            <input type="file" name="slide_image">
+                                        </fieldset>
+                                        <fieldset class="form-group">
+                                            <button type="submit" class="btn btn-primary">Save changes</button>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                            </div>
+                            <?php
+                            }
+                            ?>
+                        </div>
+                        <div class="tab-pane" id="slide_mongolian">
+                            <?php
+                            $db->query("select * from slides where slide_lang = 'mongolian'");
+                            $res = $db->resultset();
+                            foreach ($res as $slide) {
+                            ?>
+                            <div class="container-fluid" style="margin-top: 25px; margin-bottom: 20px;">
+                                <div class="col-md-8">
+                                    <img src="../../images/<?php echo $slide['slide_image']; ?>" alt="" class="img-responsive">
+                                </div>
+                                <div class="col-md-4 well well-md">
+                                    <form action="../backend/slideSave.php" method="POST">
+                                        <fieldset class="form-group">
+                                            <input type="hidden" value="<?php echo $slide['slide_id']; ?>" name="slide_id">
+                                            <label for="slide_title">Title</label>
+                                            <input type="text" value="<?php echo $slide['slide_title']; ?>" class="form-control" name="slide_title">
+                                        </fieldset>
+                                        <fieldset class="form-group">
+                                            <label for="slide_desc">Description</label>
+                                            <textarea class="form-control" name="slide_desc" rows="10"><?php echo $slide['slide_description']; ?></textarea>
+                                        </fieldset>
+                                        <fieldset class="form-group">
+                                            <label for="slide_link">Link</label>
+                                            <input type="text" class="form-control" name="slide_link" value="<?php echo $slide['slide_link']; ?>">
+                                        </fieldset>
+                                        <fieldset class="form-group">
+                                            <label for="slide_lang">Language</label>
+                                            <select class="form-control" name="slide_lang">
+                                                <option <?php if ($slide['slide_lang'] == "english") echo "selected"; ?>>English</option>
+                                                <option <?php if ($slide['slide_lang'] == "mongolian") echo "selected"; ?>>Mongolian</option>
+                                            </select>
+                                        </fieldset>
+                                        <fieldset class="form-group">
+                                            <label for="slide_image">Change slide image</label><br>
+                                            <input type="checkbox" value="Change"> Change
+                                            <input type="file" name="slide_image">
+                                        </fieldset>
+                                        <fieldset class="form-group">
+                                            <button type="submit" class="btn btn-primary">Save changes</button>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                            </div>
+                            <?php
+                            }
+                            ?>
+                        </div>
+                    </div>
+                </div>
+
+                
 
             </div>
             <!-- /.row -->

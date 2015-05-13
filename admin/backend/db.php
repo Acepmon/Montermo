@@ -12,7 +12,7 @@ namespace db {
 
         private $host = "localhost";
         private $user = "root";
-        private $pass = "acep123";
+        private $pass = "";
         private $dbname = "montermo";
         private $dbh;
         private $error;
