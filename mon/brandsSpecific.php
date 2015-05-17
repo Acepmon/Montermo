@@ -80,7 +80,7 @@ http://www.templatemo.com/preview/templatemo_409_travel
                                         $db->bind(":product_id", $r['product_id']);
                                         $results = $db->resultset();
                                         foreach ($results as $img) {
-                                            echo "<img src='../images/brand_images/brand_".$brand['brand_id']."/product_".$r['product_id']."/".$r['img_url']."' class='img-responsive'>";
+                                            echo "<img src='../images/brand_images/brand_".$brand['brand_id']."/products/".$img['img_url']."' class='img-responsive'>";
                                         }
                                     }
                                 ?>

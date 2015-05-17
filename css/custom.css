@@ -71,3 +71,6 @@
 .brand .row:first-child img {
     padding: 10px;
 }
+.brand .row:last-child .btn {
+    margin-top: 25px;
+}

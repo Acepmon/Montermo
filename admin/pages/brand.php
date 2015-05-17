@@ -107,12 +107,7 @@
         <div id="page-wrapper">
             <div class="row" id="brands">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Brands</h1>
-                    <p>
-                        <a href="#brand_add_modal" class="btn btn-success" data-toggle="modal">
-                            <span class="glyphicon glyphicon-plus"></span> Add new brand
-                        </a>
-                    </p>
+                    <h1 class="page-header">Brands <a href="#brand_add_modal" class="btn btn-success pull-right" data-toggle="modal"><span class="glyphicon glyphicon-plus"></span> Add new brand</a></h1>
                     <div class="panel-group" id="brands_group" role="tablist" aria-multiselectable="true">
                         <?php
                         $db = new db\Connector();
@@ -153,12 +148,58 @@
                                     </div>
                                 </div>
                                 <div class="panel-footer">
-                                    <a href="#" class="btn btn-info">
-                                        <span class="glyphicon glyphicon-th-list"></span> List products</a>
-                                    <a href="#brand_edit_modal" id="brand_edit" value="<?php echo $id; ?>" class="btn btn-warning" data-toggle="modal">
+                                    <a href="#brand_edit_modal<?php echo $id; ?>" id="brand_edit" class="btn btn-warning" data-toggle="modal">
                                         <span class="glyphicon glyphicon-pencil"></span> Edit</a>
                                     <a href="../backend/brand_deleting.php?del_id=<?php echo $id; ?>" id="brand_list_delete" class="btn btn-danger">
                                         <span class="glyphicon glyphicon-trash"></span> Delete</a>
+                                </div>
+                            </div>
+
+                            <div class="modal fade" id="brand_edit_modal<?php echo $id; ?>" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <form id="brand_edit_form" action="../backend/brand_editing.php" method="POST" enctype="multipart/form-data">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h3>Edit brand</h3>
+                                        </div>
+                                        <div class="modal-body">
+                                            <input type="hidden" name="brand_id" value="<?php echo $id; ?>">
+                                            <fieldset class="form-group">
+                                                <label for="brand_title">Title</label>
+                                                <input type="text" class="form-control" id="brand_title" name="brand_title" value="<?php echo $title; ?>" required>
+                                            </fieldset>
+                                            <fieldset class="form-group">
+                                                <label for="brand_short_desc">Short Description</label>
+                                                <input type="text" name="brand_s_desc" id="brand_edit_s_desc" class="form-control" value="<?php echo $s_desc; ?>">
+                                            </fieldset>
+                                            <fieldset class="form-group">
+                                                <label for="brand_description">Description</label>
+                                                <textarea class="form-control" name="brand_desc" id="brand_edit_desc" rows="10" required><?php echo $desc; ?></textarea>
+                                            </fieldset>
+                                            <fieldset class="form-group col-sm-6">
+                                                <img src="../../images/brand_images/<?php echo $logo; ?>" id="brand_edit_logo" class="img-responsive">
+                                            </fieldset>
+                                            <fieldset class="form-group col-sm-6">
+                                                <input type="checkbox" name="brand_change" align="middle" brand_edit="change">
+                                                <label for="brand_logo">Change Logo</label>
+                                                <input type="file" name="brand_logo">
+                                            </fieldset>
+                                            <div class="clearfix"></div>
+                                            <fieldset class="form-group">
+                                                <label for="brand_lang">Language</label>
+                                                <select name="brand_lang" id="brand_edit_lang" selectedIndex="0" class="form-control">
+                                                    <option <?php if ($lang=="english") echo "selected"; ?>>English</option>
+                                                    <option <?php if ($lang=="mongolian") echo "selected"; ?>>Mongolian</option>
+                                                </select>
+                                            </fieldset>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -210,51 +251,6 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-success">Submit Data</button>
-                        </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="modal fade" id="brand_edit_modal" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <form id="brand_edit_form">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h3>Edit brand</h3>
-                        </div>
-                        <div class="modal-body">
-                            <fieldset class="form-group">
-                                <label for="brand_title">Title</label>
-                                <input type="text" class="form-control" id="brand_edit_title" name="brand_title" value="" required>
-                            </fieldset>
-                            <fieldset class="form-group">
-                                <label for="brand_short_desc">Short Description</label>
-                                <input type="text" name="brand_short_desc" id="brand_edit_s_desc" class="form-control">
-                            </fieldset>
-                            <fieldset class="form-group">
-                                <label for="brand_description">Description</label>
-                                <textarea class="form-control" name="brand_description" id="brand_edit_desc" rows="10" required></textarea>
-                            </fieldset>
-                            <fieldset class="form-group col-sm-6">
-                                <img src="../../images/logo.png" id="brand_edit_logo" class="img-responsive">
-                            </fieldset>
-                            <fieldset class="form-group col-sm-6">
-                                <label for="brand_logo">Change Logo</label>
-                                <input type="file" name="brand_logo" required>
-                            </fieldset>
-                            <div class="clearfix"></div>
-                            <fieldset class="form-group">
-                                <label for="brand_lang">Language</label>
-                                <select name="brand_lang" id="brand_edit_lang" selectedIndex="0" class="form-control">
-                                    <option>English</option>
-                                    <option>Mongolian</option>
-                                </select>
-                            </fieldset>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Save changes</button>
                         </div>
                         </form>
                     </div>

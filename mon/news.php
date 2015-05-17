@@ -2,7 +2,12 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> 
+<html class="no-js"> <!--<![endif]-->
+<?php
+    require_once "../admin/backend/db.php";
+    require_once "../admin/backend/helper.php";
+?>
     <head>
         <meta charset="utf-8">
         <title>Events Page - Travel by templatemo</title>
@@ -50,92 +55,63 @@ http://www.templatemo.com/preview/templatemo_409_travel
                     <!-- <small> Recent</small> -->
                 </h1>
 
-                <!-- News Posts are here! -->
-                <div class="news_post">
-                    <h2>
-                        <a href="newsSpecific.php">АНУ-ын PENTAIR компанитай хамтран Оюу Толгой ХХК-ийн баяжуулах үйлдвэрд шугам хоолойн хаалтны судалгааг хийлээ</a>
-                    </h2>
-                    <P>
-                        
-                    </P>
-                    <P>2015/04/30 - ны өдөр тавигдав.</P>
-                    <img class="img-responsive" src="" alt="">
-                    <P class="news_post_desc">
-                        Монтермо ХХК нь 2014 оноос АНУ-ын “Pentair Ltd”-ийн Монгол дахь албан ёсны 
-                        төлөөлөгчөөр ажиллаж байна. 2015 оны 3-р сарын 24-27-нд манай компанийн урилгаар 
-                        TYCO брэндийг суурилуулах мэргэжилтнүүд ирж, Оюу Толгой ХХК-ийн баяжуулах үйлдвэр 
-                        дэх хаалт, хавхлаганы судалгаа хийсэн байна. Түүнчлэн судалгаандаа үндэслэн TYCO 
-                        брэндийг суурилуулах талаар зөвлөгөө өгсөн байна.
-                    </P>
-                    <a href="newsSpecific.php?news_id=4" class="btn btn-primary">Цааш унших</a>
-                </div>
+                <?php
+                $db = new db\Connector();
+                $db->query("select * from news where news_lang = 'mongolian' order by news_id desc");
+                $newses = $db->resultset();
+                $broke_news = break_array($newses, 4);
 
-                <div class="news_post">
-                    <h2>
-                        <a href="newsSpecific.php">АНУ-ын “CiDRA Corporate Services Inc”-тэй хамтран “Эрдэнэт Үйлдвэр” ХХК-д сургалт явууллаа</a>
-                    </h2>
-                    <P>
-                        
-                    </P>
-                    <P>2015/04/05 - ны өдөр тавигдав.</P>
-                    <img class="img-responsive" src="" alt="">
-                    <P class="news_post_desc">
-                        Монтермо ХХК нь 2014 оноос АНУ-ын “CiDRA Corporate Services Inc”-ийн Монгол дахь 
-                        албан ёсны төлөөлөгчөөр ажиллаж байна. 2015 оны 4-р сард CiDRA компанийн мэргэжилтэн 
-                        John Viega хүрэлцэн ирэж, Эрдэнэт Үйлдвэр ХХК-ийн 30 ажилтанд 1 хоног техникийн 
-                        сургалт үзүүллээ. Тус сургалтын үеэр баяжуулах үйлдвэрийн шугам хоолойн ашиглалтыг 
-                        сайжруулах, эвдрэлээс сэргийлэх талаар зөвлөгөө өгсөн байна.
-                    </P>
-                    <a href="newsSpecific.php?news_id=3" class="btn btn-primary">Цааш унших</a>
-                </div>
+                $page = 0;
+                if (isset($_GET['page'])) {
+                    if ($_GET['page'] > 0) {
+                        $page = $_GET['page'];
+                    } else {
+                        $page = 0;
+                    }
+                } else {
+                    $page = 0;
+                }
 
-                <div class="news_post">
-                    <h2>
-                        <a href="newsSpecific.php">АНУ-ын “CiDRA Corporate Services Inc”-тэй хамтран Оюу Толгой ХХК-д техникийн үйлчилгээ үзүүллээ</a>
-                    </h2>
-                    <P>
-                        
-                    </P>
-                    <P>2015/02/21 - ны өдөр тавигдав.</P>
-                    <img class="img-responsive" src="" alt="">
-                    <P class="news_post_desc">
-                        Монтермо ХХК нь 2014 оноос АНУ-ын “CiDRA Corporate Services Inc”-ийн Монгол дахь албан ёсны 
-                        төлөөлөгчөөр ажиллаж байна. 2015 оны 2-р сард манай компанийн урилгаар CiDRA брэндийг суурилуулах
-                        мэргэжилтнүүд ирж, Оюу Толгой ХХК-д 14 хоног техникийн үйлчилгээ үзүүлсэн. Мөн үйлчилгээний тайландаа 
-                        үндэслэн шугам хоолойн ашиглалтыг сайжруулах, эвдрэлээс сэргийлэх талаар зөвлөгөө өгсөн байна.
-                    </P>
-                    <a href="newsSpecific.php?news_id=2" class="btn btn-primary">Цааш унших</a>
-                </div>
+                foreach ($broke_news[$page] as $news) {
+                    ?>
+                    <div class="news_post">
+                        <h2>
+                            <a href="newsSpecific.php?news_id=<?php echo $news['news_id']; ?>"><?php echo $news['news_header']; ?></a>
+                        </h2>
+                        <P>
+                            
+                        </P>
+                        <P><?php echo $news['news_date']; ?> - ны өдөр тавигдав.</P>
+                        <?php if (!empty($news['news_thumb'])) echo "<img class='img-responsive' src='../images/news/".$news['news_thumb']."' alt=''>"; ?>
+                        <P class="news_post_desc">
+                            <?php echo substr($news['news_text'], 0, 300); ?>
+                        </P>
+                        <a href="newsSpecific.php?news_id=<?php echo $news['news_id']; ?>" class="btn btn-primary">Цааш унших</a>
+                    </div>
+                    <?php
+                }
 
-                <div class="news_post">
-                    <h2>
-                        <a href="newsSpecific.php">Монтермо ХХК "Mine Tech 2014" үзэсгэлэнд амжилттай оролцлоо</a>
-                    </h2>
-                    <p class="lead">
-                        
-                    </p>
-                    <p>2014/04/01 - ны өдөр тавигдав.</p>
-                    <img class="img-responsive" src="" alt="">
-                    <p class="news_post_desc">
-                        Уул Уурхайн Үндэсний Ассоциациас жил бүр зохион байгуулдаг "Mine Tech" 
-                        олон улсын уул уурхайн үзэсгэлэнд Монтермо ХХК анх удаа амжилттай оролцлоо. 
-                        Мишээл Экспод 3 хоног үргэлжилсэн уг үзэсгэлэнд гадаад дотоодын нийт 70 
-                        гаруй компани оролцсон бөгөөд энэ үеэр Монтермо ХХК нийт харилцагчиддаа 
-                        өөрсдийн түнш байгууллагуудын бүтээгдэхүүн үйлчилгээг танилцуулж, олон талаар 
-                        хамтран ажиллах санал солилцлоо. Үзэсгэлэнгийн үеэр гадаад дотоодын нөлөө 
-                        бүхий олон байгууллагын төлөөлөгчид хүрэлцэн ирж манай компанийн үйл ажиллагаатай 
-                        танилцан, харилцан санал солилцох зэргээр үр дүнтэй арга хэмжээ болж өнгөрлөө.
-                    </p>
-                    <a href="newsSpecific.php?news_id=1" class="btn btn-primary">Цааш унших</a>
-                </div>
+                ?>
 
                 <!-- Pager -->
                 <ul class="pager">
                     <li class="previous">
-                        <a href="#">&larr; Шинэ</a>
+                        <?php 
+                        $dec_page = $page;
+                        if (($page-1) > -1) {
+                            $dec_page = $page-1;
+                        }
+                        ?>
+                        <a href="news.php?page=<?php echo $dec_page; ?>">&larr; Шинэ</a>
                     </li>
                     <li class="next">
-                        <a href="#">Хуучин &rarr;</a>
+                        <?php 
+                        $inc_page = $page;
+                        if (($page+1) < sizeof($broke_news)) {
+                            $inc_page = $page+1;
+                        }
+                        ?>
+                        <a href="news.php?page=<?php echo $inc_page; ?>">Хуучин &rarr;</a>
                     </li>
                 </ul>
 

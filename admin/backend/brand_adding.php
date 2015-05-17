@@ -36,7 +36,9 @@ if (!empty($title) || !empty($desc) || !empty($s_desc)) {
 	$logo_target_file = $target_dir.$logo_file;
 
 	if (!file_exists($target_dir.$cont_dir)) {
+		$oldmask = umask(0);
 	    mkdir($target_dir.$cont_dir, 0777, true);
+	    umask($oldmask);
 	}
 
 	// Move Logo
@@ -50,6 +52,7 @@ if (!empty($title) || !empty($desc) || !empty($s_desc)) {
 	$db->bind(":logo", $logo_file);
 	$db->bind(":lang", $lang);
 	$db->execute();
+	
 }
 header ("Location: ../pages/brand.php");	
 

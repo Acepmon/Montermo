@@ -6,6 +6,7 @@
 <html class="no-js"> <!--<![endif]-->
 <?php
     require_once "../admin/backend/db.php";
+    require_once "../admin/backend/helper.php";
 ?>
     <head>
         <meta charset="utf-8">
@@ -49,8 +50,9 @@ http://www.templatemo.com/preview/templatemo_409_travel
                     $db = new db\Connector();
                     $db->query("select * from brands where brand_lang = 'mongolian'");
                     $res = $db->resultset();
-                    foreach ($res as $r) {
-                        
+                    foreach (break_array($res, 3) as $ra) {
+                        echo "<div class='row'>";
+                        foreach ($ra as $r) {
                         ?>
                         <div class="col-md-4">
                             <div class="widget-item">
@@ -61,7 +63,7 @@ http://www.templatemo.com/preview/templatemo_409_travel
                                     <img src="../images/brand_images/<?php echo $r['brand_logo']; ?>" alt="Flowrox">
                                 </div>
                                 <h4 class="consult-title">
-                                    <a href="brandsSpecific.php?brand_id=<?php echo $r['brand_id']; ?>"><?php echo $r['brand_short_desc']; ?></a>
+                                    <a href="brandsSpecific.php?brands_id=<?php echo $r['brand_id']; ?>"><?php echo $r['brand_short_desc']; ?></a>
                                 </h4>
                                 <p>
                                     <?php echo substr($r['brand_description'], 0, 500); ?>
@@ -69,7 +71,8 @@ http://www.templatemo.com/preview/templatemo_409_travel
                             </div>
                         </div>
                         <?php
-                        
+                        }
+                        echo "</div>";
                     }
                     ?>
                 </div>

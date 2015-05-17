@@ -176,7 +176,7 @@
                                     <img src="../../images/<?php echo $slide['slide_image']; ?>" alt="" class="img-responsive">
                                 </div>
                                 <div class="col-md-4 well well-md">
-                                    <form action="../backend/slideSave.php" method="POST">
+                                    <form action="../backend/slideSave.php" method="POST" enctype="multipart/form-data">
                                         <fieldset class="form-group">
                                             <input type="hidden" value="<?php echo $slide['slide_id']; ?>" name="slide_id">
                                             <label for="slide_title">Title</label>
@@ -198,8 +198,8 @@
                                             </select>
                                         </fieldset>
                                         <fieldset class="form-group">
+                                            <input type="checkbox" value="Change" name="slide_image_change" brand_edit="change">
                                             <label for="slide_image">Change slide image</label><br>
-                                            <input type="checkbox" value="Change" name="slide_image_change"> Change
                                             <input type="file" name="slide_image">
                                         </fieldset>
                                         <fieldset class="form-group">
@@ -223,7 +223,7 @@
                                     <img src="../../images/<?php echo $slide['slide_image']; ?>" alt="" class="img-responsive">
                                 </div>
                                 <div class="col-md-4 well well-md">
-                                    <form action="../backend/slideSave.php" method="POST">
+                                    <form action="../backend/slideSave.php" method="POST" enctype="multipart/form-data">
                                         <fieldset class="form-group">
                                             <input type="hidden" value="<?php echo $slide['slide_id']; ?>" name="slide_id">
                                             <label for="slide_title">Title</label>
@@ -245,8 +245,8 @@
                                             </select>
                                         </fieldset>
                                         <fieldset class="form-group">
+                                            <input type="checkbox" value="Change" brand_edit="change">
                                             <label for="slide_image">Change slide image</label><br>
-                                            <input type="checkbox" value="Change"> Change
                                             <input type="file" name="slide_image">
                                         </fieldset>
                                         <fieldset class="form-group">

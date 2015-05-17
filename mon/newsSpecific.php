@@ -2,7 +2,12 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> 
+<html class="no-js"> <!--<![endif]-->
+<?php
+    require_once "../admin/backend/db.php";
+    require_once "../admin/backend/helper.php";
+?>
     <head>
         <meta charset="utf-8">
         <title>Events Page - Travel by templatemo</title>
@@ -52,153 +57,32 @@ http://www.templatemo.com/preview/templatemo_409_travel
 
                 <?php
 
-                $news_id = isset($_GET['news_id']) ? $_GET['news_id'] : null;
-                if (!empty($news_id)) {
-                    if ($news_id == 4) {
-                        ?>
+                    $news_id = isset($_GET['news_id']) ? $_GET['news_id'] : null;
+                    if (!empty($news_id)) {
+                    $db = new db\Connector();
+                    $db->query("select * from news where news_id = :id");
+                    $db->bind(":id", $news_id);
+                    $news = $db->single();
+                    ?>
                         <div class="news_post">
                             <h2>
-                                АНУ-ын PENTAIR компанитай хамтран Оюу Толгой ХХК-ийн баяжуулах үйлдвэрд шугам хоолойн хаалтны судалгааг хийлээ
+                                <?php echo $news['news_header']; ?>
                             </h2>
                             <p>
-                                2015/04/30 - ны өдөр тавигдав.
+                                <?php echo $news['news_date']; ?> - ны өдөр тавигдав.
                             </p>
-                            <img class="img-responsive" src="" alt="">
-                            <p>
-                                Монтермо ХХК нь 2014 оноос АНУ-ын “Pentair Ltd”-ийн Монгол дахь албан ёсны 
-                                төлөөлөгчөөр ажиллаж байна. 2015 оны 3-р сарын 24-27-нд манай компанийн урилгаар 
-                                TYCO брэндийг суурилуулах мэргэжилтнүүд ирж, Оюу Толгой ХХК-ийн баяжуулах үйлдвэр 
-                                дэх хаалт, хавхлаганы судалгаа хийсэн байна. Түүнчлэн судалгаандаа үндэслэн TYCO 
-                                брэндийг суурилуулах талаар зөвлөгөө өгсөн байна.
-                            </p>
-                            <p>
-                                Pentair offers one of the largest portfolios of actuation and controls products 
-                                available in the market today.  Global manufacturing facilities produce electric, 
-                                pneumatic, hydraulic, gas-hydraulic and subsea actuators along with rotary and linear 
-                                valve position and control monitors.  Servicing a wide range of industries including 
-                                oil and gas (onshore and offshore), petrochemical, chemical and power generation, 
-                                Pentair has the applications experience and customization capabilities to find the 
-                                optimum solution for your valve automation needs.  Whether it’s providing a bare actuator, 
-                                helping to size an actuator or designing a customized automation solution, 
-                                Pentair actuation and controls can help.
-                            </p>
-                            <strong>Product range: </strong>
-                            <ul>
-                                <li>Electric Actuators</li>
-                                <li>Hydraulic Actuators</li>
-                                <li>Manual Operators</li>
-                                <li>Pneumatic Actuators</li>
-                                <li>Pneumatic Controls</li>
-                            </ul>
+                            <?php 
+                            if (!empty($news['news_thumb'])) {
+                                echo "<img class='img-responsive' src='../images/news/".$news['news_thumb']."' alt=''>";
+                            }
+                            echo $news['news_text'];
+                            ?>
+                            <br>
                             <a href="news.php" class="btn btn-primary">Буцах!</a>
                         </div>
-                        <?php
-                    } else if ($news_id == 3) {
-                        ?>
-                        <div class="news_post">
-                            <h2>АНУ-ын “CiDRA Corporate Services Inc”-тэй хамтран “Эрдэнэт Үйлдвэр” ХХК-д сургалт явууллаа</h2>
-                            <P>
-                                2015/04/05 - ны өдөр тавигдав.
-                            </P>
-                            <img class="img-responsive" src="" alt="">
-                            <P>
-                                Монтермо ХХК нь 2014 оноос АНУ-ын “CiDRA Corporate Services Inc”-ийн Монгол дахь албан 
-                                ёсны төлөөлөгчөөр ажиллаж байна. 2015 оны 4-р сард CiDRA компанийн мэргэжилтэн John Viega 
-                                хүрэлцэн ирэж, Эрдэнэт Үйлдвэр ХХК-ийн 30 ажилтанд 1 хоног техникийн сургалт үзүүллээ. 
-                                Тус сургалтын үеэр баяжуулах үйлдвэрийн шугам хоолойн ашиглалтыг сайжруулах, эвдрэлээс 
-                                сэргийлэх талаар зөвлөгөө өгсөн байна.
-                            </P>
-                            <P>
-                                CiDRA нь үйлдвэрийн процессийн оновчлол, эрчимжүүлсэн аргаар эрдэс баяжуулах шийдлээрээ 
-                                тэргүүлэгч компани бөгөөд дэлхийн томоохон үйлдвэрүүдэд өөрийн шийдлээ нэвтрүүлсэн. 
-                                CiDRA нь АНУ-ын болон олон улсын зэрэглэлтэй 700 гаруй патентыг эзэмшдэг бөгөөд албан 
-                                ёсны оюуны өмчийн бүртгэлтэй. Дэлхийн нийт зэсийн баяжмалын 65% нь 
-                                CiDRA-ийн бүтээгдэхүүнүүдээр дамжин өнгөрдөг.
-                            </P>
-                            <strong>Бүтээгдэхүүний нэр төрөл: </strong>
-                            <ul>
-                                <li>SONARtrac®- Шугаман хоолойн урсгал мэдрэгч - 
-                                    Шугаман хоолойгоор дамжин өнгөрч буй баяжмалын 
-                                    тунг тодорхойлдог ба хийн хэмжээг гаргаж ирдгээрээ 
-                                    баяжмалын ашигтай эсэхийг тодорхойлдог.</li>
-                                <li>
-                                    HALO® – Элэгдлийн түвшин тодорхойлогч - 
-                                    Шугаман хоолойн хананы зузааныг дуун 
-                                    дохионы тусламжтайгаар тогтоодог бөгөөд 
-                                    аливаа цооролт задралт үүсэхээс сэргийлдэг.
-                                </li>
-                            </ul>
-                            <a href="news.php" class="btn btn-primary">Буцах!</a>
-                        </div>
-                        <?php
-                    } else if ($news_id == 2) {
-                        ?>
-                        <div class="news_post">
-                            <h2>АНУ-ын “CiDRA Corporate Services Inc”-тэй хамтран Оюу Толгой ХХК-д техникийн үйлчилгээ үзүүллээ</h2>
-                            <P>
-                                2015/02/21 - ны өдөр тавигдав.
-                            </P>
-                            <img class="img-responsive" src="" alt="">
-                            <P>
-                                Монтермо ХХК нь 2014 оноос АНУ-ын “CiDRA Corporate Services Inc”-ийн Монгол дахь албан 
-                                ёсны төлөөлөгчөөр ажиллаж байна. 2015 оны 4-р сард CiDRA компанийн мэргэжилтэн John Viega 
-                                хүрэлцэн ирэж, Эрдэнэт Үйлдвэр ХХК-ийн 30 ажилтанд 1 хоног техникийн сургалт үзүүллээ. 
-                                Тус сургалтын үеэр баяжуулах үйлдвэрийн шугам хоолойн ашиглалтыг сайжруулах, эвдрэлээс 
-                                сэргийлэх талаар зөвлөгөө өгсөн байна.
-                            </P>
-                            <P>
-                                CiDRA нь үйлдвэрийн процессийн оновчлол, эрчимжүүлсэн аргаар эрдэс баяжуулах шийдлээрээ 
-                                тэргүүлэгч компани бөгөөд дэлхийн томоохон үйлдвэрүүдэд өөрийн шийдлээ нэвтрүүлсэн. 
-                                CiDRA нь АНУ-ын болон олон улсын зэрэглэлтэй 700 гаруй патентыг эзэмшдэг бөгөөд албан 
-                                ёсны оюуны өмчийн бүртгэлтэй. Дэлхийн нийт зэсийн баяжмалын 65% нь 
-                                CiDRA-ийн бүтээгдэхүүнүүдээр дамжин өнгөрдөг.
-                            </P>
-                            <strong>Бүтээгдэхүүний нэр төрөл: </strong>
-                            <ul>
-                                <li>SONARtrac®- Шугаман хоолойн урсгал мэдрэгч - 
-                                    Шугаман хоолойгоор дамжин өнгөрч буй баяжмалын 
-                                    тунг тодорхойлдог ба хийн хэмжээг гаргаж ирдгээрээ 
-                                    баяжмалын ашигтай эсэхийг тодорхойлдог.</li>
-                                <li>
-                                    HALO® – Элэгдлийн түвшин тодорхойлогч - 
-                                    Шугаман хоолойн хананы зузааныг дуун 
-                                    дохионы тусламжтайгаар тогтоодог бөгөөд 
-                                    аливаа цооролт задралт үүсэхээс сэргийлдэг.
-                                </li>
-                            </ul>
-                            <a href="news.php" class="btn btn-primary">Буцах!</a>
-                        </div>
-                        <?php
-                    } else if ($news_id == 1) {
-                        ?>
-                        <div class="news_post">
-                            <h2>Монтермо ХХК “Mine Tech 2014” үзэсгэлэнд амжилттай оролцлоо</h2>
-                            <P>
-                                2014/04/01 - ны өдөр тавигдав.
-                            </P>
-                            <img class="img-responsive" src="" alt="">
-                            <P>
-                                Уул Уурхайн Үндэсний Ассоциациас жил бүр зохион байгуулдаг "Mine Tech" 
-                                олон улсын уул уурхайн үзэсгэлэнд Монтермо ХХК анх удаа амжилттай оролцлоо. 
-                                Мишээл Экспод 3 хоног үргэлжилсэн уг үзэсгэлэнд гадаад дотоодын нийт 70 гаруй 
-                                компани оролцсон бөгөөд энэ үеэр Монтермо ХХК нийт харилцагчиддаа өөрсдийн түнш 
-                                байгууллагуудын бүтээгдэхүүн үйлчилгээг танилцуулж, олон талаар хамтран ажиллах 
-                                санал солилцлоо. Үзэсгэлэнгийн үеэр гадаад дотоодын нөлөө бүхий олон байгууллагын 
-                                төлөөлөгчид хүрэлцэн ирж манай компанийн үйл ажиллагаатай танилцан, харилцан санал 
-                                солилцох зэргээр үр дүнтэй арга хэмжээ болж өнгөрлөө.
-                            </P>
-                            <P>
-                                Бид бүтээгдэхүүнийхээ нэр төрлүүдийг амжилттай сурталчилж, ингэснээрээ үйлчлүүлэгчдийн 
-                                дунд өөрсдийн бүтээгдэхүүнийхээ талаар өргөн хүрээний, дэлгэрэнгүй ойлголтыг өгч чадсан юм.
-                            </P>
-                            <a href="news.php" class="btn btn-primary">Буцах!</a>
-                        </div>
-                        <?php
+                    <?php
                     }
-                }
-
-                ?>
-
+                    ?>
             </div>
 
             <!-- Blog Sidebar Widgets Column -->

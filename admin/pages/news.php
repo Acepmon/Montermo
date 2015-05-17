@@ -107,24 +107,89 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">News</h1>
-                    <div ui-view></div>
+                    <h1 class="page-header">News <a href="#news_add_modal" class="btn btn-success pull-right" data-toggle="modal"><span class="glyphicon glyphicon-plus"></span> Publish news</a></h1>
+
+                    <?php
+                    $db = new db\Connector();
+                    $db->query("select * from news order by news_id desc");
+                    $newses = $db->resultset();
+                    if (empty($newses)) {
+                        echo "<div class='alert alert-warning'><span class='glyphicon glyphicon-warning-sign'></span> No news!</div>";
+                    } else {
+                        echo "<ul class='list-group'>";
+                        foreach ($newses as $news) {
+                            ?>
+                            <li class="list-group-item">
+                                <div class="col-sm-1 text-left">
+                                    <h4><?php echo ucfirst($news['news_lang']); ?></h4>
+                                </div>
+                                <div class="col-sm-9 text-center">
+                                    <a href="#news_view<?php echo $news['news_id']; ?>" data-toggle="collapse"><h4><?php echo $news['news_header'];?></h4></a>
+                                </div>
+                                <div class="col-sm-2 text-right">
+                                    <a href="../backend/news_deleting.php?news_id=<?php echo $news['news_id']; ?>" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</a>
+                                </div>
+                                <div id="news_view<?php echo $news['news_id']; ?>" class="col-sm-12 panel-collapse collapse">
+                                    <img src="../../images/news/<?php echo $news['news_thumb']; ?>" alt="" class="img-responsive">
+                                    <div>
+                                        <?php echo $news['news_text']; ?>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </li>
+                            <?php
+                        }
+                        echo "</ul>";
+                    }
+                    ?>
                 </div>
-                <!-- /.col-lg-12 -->
             </div>
-            <!-- /.row -->
-            <div class="row">
-                
-                
-
-            </div>
-            <!-- /.row -->
-            <div class="row">
-
-            </div>
-            <!-- /.row -->
         </div>
         <!-- /#page-wrapper -->
+
+        <div id="news_add_modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form method="POST" action="../backend/news_adding.php" enctype="multipart/form-data">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h3>Publish News</h3>
+                    </div>
+                    <div class="modal-body" id="output_modal_content">
+                        <fieldset class="form-group">
+                            <label>Title</label>
+                            <input type="text" class="form-control" name="news_header" required>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label>Text</label>
+                            <textarea class="form-control" name="news_text" rows="10" required></textarea>
+                        </fieldset>
+                        <fieldset>
+                            <label>Date</label>
+                            <input type="text" name="news_date" class='form-control' value="<?php echo date("Y-m-d"); ?>" readonly>
+                        </fieldset>
+                        <br>
+                        <fieldset class="form-group">
+                            <label>Header image</label>
+                            <input type="file" name="news_thumb" accept="image/*">
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label>Language</label>
+                            <select name="news_lang" class="form-control">
+                                <option>English</option>
+                                <option>Mongolian</option>
+                            </select>
+                        </fieldset>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-success">Submit Data</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
 
     </div>
     <!-- /#wrapper -->

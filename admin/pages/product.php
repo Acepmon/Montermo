@@ -112,12 +112,7 @@
                         $db->query("select * from brands order by brand_id desc");
                         $res = $db->resultset();
                     ?>
-                    <h1 class="page-header">Product</h1>
-                    <p>
-                        <a href="#product_add_modal" class="btn btn-success" data-toggle="modal">
-                            <span class="glyphicon glyphicon-plus"></span> Add new product
-                        </a>
-                    </p>
+                    <h1 class="page-header">Product <a href="#product_add_modal" class="btn btn-success pull-right" data-toggle="modal"><span class="glyphicon glyphicon-plus"></span> Add new product</a></h1>
                     <h5 class='text-info'>
                         Click on brand item to expand products!
                     </h5>
@@ -158,7 +153,7 @@
                                         echo "<li class='list-group-item clearfix'>";
                                         echo "<a href='#product_collapse_".$product['product_id']."' data-toggle='collapse'>".$product_name." - ".ucfirst($product_lang)."</a>";
                                         echo "<span class='pull-right'>";
-                                        echo "<a href='' class='btn btn-warning'><span class='glyphicon glyphicon-pencil'></span> Edit</a> ";
+                                        // echo "<a href='#product_edit_modal".$product['product_id']."' id='product_edit' class='btn btn-warning' data-toggle='modal'><span class='glyphicon glyphicon-pencil'></span> Edit</a> ";
                                         echo "<a href='../backend/product_deleting.php?del_product_id=".$product['product_id']."&brand_id=".$id."' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span> Delete</a>";
                                         echo "</span>";
                                         echo "<div id='product_collapse_".$product['product_id']."' class='collapse' style='padding-top: 10px;'>";
@@ -166,10 +161,81 @@
                                         $db->query("select img_url from product_img where products_product_id = :id");
                                         $db->bind(":id", $product['product_id']);
                                         foreach ($db->resultset() as $r) {
-                                            echo "<img src='../../images/brand_images/brand_".$id."/product_".$product['product_id']."/".$r['img_url']."' class='img-responsive'>";
+                                            echo "<img src='../../images/brand_images/brand_".$id."/products/".$r['img_url']."' class='img-responsive'>";
                                         }
                                         echo "</div>";
                                         echo "</li>";
+
+                                        ?>
+                                        <div id="product_edit_modal<?php echo $product['product_id']; ?>" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <form>
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                            <h3>Edit product</h3>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <fieldset class="form-group">
+                                                                <label for="product_name">Name</label>
+                                                                <input type="text" name="product_name" class="form-control">
+                                                            </fieldset>
+                                                            <fieldset class="form-group">
+                                                                <label for="product_desc">Description</label>
+                                                                <textarea name="product_desc" cols="30" rows="10" class="form-control"></textarea>
+                                                            </fieldset>
+                                                            <fieldset class="form-group">
+                                                                <label for="product_lang">Language</label>
+                                                                <select name="product_lang" class="form-control">
+                                                                    <option>English</option>
+                                                                    <option>Mongolian</option>
+                                                                </select>
+                                                            </fieldset>
+                                                            <fieldset class="form-group">
+                                                                <label for="product_brand">Product Brand</label>
+                                                                <select name="product_brand" class="form-control">
+                                                                    <option></option>
+                                                                    <?php
+                                                                    $db->query("select brand_id, brand_title, brand_lang from brands");
+                                                                    $res = $db->resultset();
+                                                                    foreach ($res as $r) {
+                                                                        echo "<option value='".$r['brand_id']."'>".$r['brand_title']." - ".ucfirst($r['brand_lang'])."</option>";
+                                                                    }
+                                                                    ?>
+                                                                </select>
+                                                            </fieldset>
+                                                            <fieldset class="form-group">
+                                                                <?php
+
+                                                                $db->query("select * from product_img where products_product_id = :product_id");
+                                                                $db->bind(":product_id", $product['product_id']);
+                                                                $product_imgs = $db->resultset();
+                                                                echo "<table class='table'>";
+                                                                foreach ($product_imgs as $img) {
+                                                                    $url = "../../images/brand_images/brand_".$id."/products/".$img['img_url'];
+                                                                    echo "<tr>";
+                                                                    echo "<td><img src='$url' class='img-responsive'></td>";
+                                                                    echo "<td>";
+                                                                    echo "<p><a href='' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span> Delete</a></p>";
+                                                                    echo "<input type='checkbox'> <label> Change</label>";
+                                                                    echo "<input type='file' accept='image/*'>";
+                                                                    echo "</td>";
+                                                                    echo "</tr>";
+                                                                }
+                                                                echo "</table>";
+
+                                                                ?>
+                                                            </fieldset>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                            <button type="submit" class="btn btn-success">Submit Data</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <?php
                                     }
                                     echo "</ul>";
                                 }
@@ -180,7 +246,6 @@
                         }
                         ?>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -188,7 +253,7 @@
         <div id="product_add_modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <form id="brand_add_form" method="POST" action="../backend/product_adding.php" enctype="multipart/form-data">
+                    <form method="post" action="../backend/product_adding.php" enctype="multipart/form-data">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <h3>Add new product</h3>

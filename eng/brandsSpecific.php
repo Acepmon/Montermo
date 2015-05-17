@@ -50,7 +50,7 @@ http://www.templatemo.com/preview/templatemo_409_travel
                 if (!empty($brands_id)) {
 
                     $db = new db\Connector();
-                    $db->query("select * from brands where brand_id = :id'");
+                    $db->query("select * from brands where brand_id = :id");
                     $db->bind(":id", $brands_id);
                     $brand = $db->single();
 
