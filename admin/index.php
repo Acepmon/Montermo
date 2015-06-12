@@ -1,7 +1,13 @@
 <?php
 
+include "backend/session.php";
 session_start();
 
-header('Location: pages/');
+$userType = Session::get('user');
+if ($userType['type'] == 'admin') {
+	header('Location: pages/');
+} else {
+	header('Location: pages/login.html');
+}
 
 ?>

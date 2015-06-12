@@ -6,12 +6,8 @@
 <html class="no-js"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
-        <title>About Page - Travel by templatemo</title>
+        <title>Careers - Montermo.com</title>
         <meta name="description" content="">
-<!-- 
-Travel Template 
-http://www.templatemo.com/preview/templatemo_409_travel 
--->
         <meta name="viewport" content="width=device-width">
 		<meta name="author" content="templatemo">
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600,300' rel='stylesheet' type='text/css'>
@@ -52,7 +48,10 @@ http://www.templatemo.com/preview/templatemo_409_travel
                 <div class="col-lg-9">
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active" id="life">
-                            
+                           <p> We appreciate your interest in joining Montermo LLC. We are always in search of talented individuals that have a sincere desire to join our company.</p>
+<p>We are looking for individuals who are committed to quality, recognize and focus on their clients, commit to “digging” deep into discovering why problems are occurring, realize the benefit of understanding what is actually going on in the workplace to solve problems and/or make improvements, understand the importance of clear communication of goals and objectives, value their business partners, and recognize that employees are the most important asset to our company.</p>
+<p>Please take the time to search for YOUR next opportunity.</p>
+
                         </div>
                         <div class="tab-pane" id="job">
                             There are currently no positions available
@@ -80,6 +79,5 @@ http://www.templatemo.com/preview/templatemo_409_travel
         <script src="../js/main.js"></script>
         <script src="../js/angular.min.js"></script>
         <script src="../js/app.js"></script>
-        <!-- templatemo 409 travel -->
     </body>
 </html>

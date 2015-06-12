@@ -90,8 +90,10 @@ http://www.templatemo.com/preview/templatemo_409_travel
 
                 <!-- Side Widget Well -->
                 <div class="well">
-                    <h4>Side Widget Well</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
+                    <h4>ТАНЫ БАЯЖУУЛАЛТЫН ХЭРЭГЦЭЭГ ЦОГЦООР НЬ</h4>
+                        <p>
+                        Утас: (976) - 70001563  <br> Имэйл: sales@montermo.com
+                        </p>
                 </div>
 
             </div>

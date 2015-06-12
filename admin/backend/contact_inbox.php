@@ -1,6 +1,6 @@
 <?php
 	
-$id = isset($_POST['contact_inbox_id']) ? $_POST['contact_inbox_id'] : null;
+$id = isset($_GET['contact_inbox_id']) ? $_GET['contact_inbox_id'] : null;
 
 if (!is_null($id)) {
 
@@ -11,4 +11,5 @@ if (!is_null($id)) {
 	$db->execute();
 
 }
+header("Location: ../pages/inbox.php");
 ?>

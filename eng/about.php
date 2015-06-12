@@ -6,12 +6,9 @@
 <html class="no-js"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
-        <title>About Page - Travel by templatemo</title>
+        <title>About us - Montermo.com</title>
         <meta name="description" content="">
-<!-- 
-Travel Template 
-http://www.templatemo.com/preview/templatemo_409_travel 
--->
+
         <meta name="viewport" content="width=device-width">
 		<meta name="author" content="templatemo">
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600,300' rel='stylesheet' type='text/css'>
@@ -45,7 +42,8 @@ http://www.templatemo.com/preview/templatemo_409_travel
                         <li role="presentation" class="active"><a href="#story" aria-controls="story" role="tab" data-toggle="tab">Our Story</a></li>
                         <li role="presentation"><a href="#values" aria-controls="values" role="tab" data-toggle="tab">Our values</a></li>
                         <li role="presentation"><a href="#ohse" aria-controls="ohse" role="tab" data-toggle="tab">OHSE</a></li>
-                        <li role="presentation"><a href="#crs" aria-controls="crs" role="tab" data-toggle="tab">CRS</a></li>
+                        <li role="presentation"><a href="#crs" aria-controls="crs" role="tab" data-toggle="tab">CSR</a></li>
+                        <li role="presentation"><a href="#careers" aria-controls="careers" role="tab" data-toggle="tab">Careers</a></li>
                     </ul>
                 </div>
 
@@ -60,6 +58,10 @@ http://www.templatemo.com/preview/templatemo_409_travel
                                 copper, gold, coal, molybdenum and fluorspar.</p>
                         </div>
                         <div role="tabpanel" class="tab-pane" id="values">
+                        	<h3>Occupational Health & Safety Environment</h3>
+                        	<p>
+                        		
+                        	</p>
                         </div>
                         <div role="tabpanel" class="tab-pane" id="ohse">
                             <h3>Occupational Health & Safety Environment</h3>
@@ -84,6 +86,9 @@ http://www.templatemo.com/preview/templatemo_409_travel
                                 <li>Montermo 'Elder Support Program'</li>
                                 <li>Montermo 'Health and Safe Environment Program'</li>
                             </ul>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="careers">
+                            
                         </div>
                     </div>
                 </div>

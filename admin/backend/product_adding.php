@@ -20,7 +20,6 @@ $brand_id = isset($_POST['product_brand']) ? $_POST['product_brand'] : "";
 $imgs = isset($_FILES['product_img']) ? $_FILES['product_img'] : "";
 
 if (!empty($name) & !empty($lang) & !empty($brand_id) & !empty($imgs)) {
-	echo $id."<br>".$name."<br>".$desc."<br>".$brand_id."<br>".$lang."<br>";
 	$lang = strtolower($lang);
 
 	$db->query("insert into products (brands_brand_id, product_name, product_description, product_lang) values (:brand_id, :name, :desc, :lang)");
@@ -46,14 +45,18 @@ if (!empty($name) & !empty($lang) & !empty($brand_id) & !empty($imgs)) {
 	    }
 	}
 	foreach ($uploaded_file_names as $names) {
-		$db->query("insert into product_img (img_url, products_product_id) values (:url, :product_id)");
-		$db->bind(":url", $names);
-		$db->bind(":product_id", $id);
-		$db->execute();
+		try {
+			$db->query("insert into product_img (img_url, products_product_id) values (:url, :product_id)");
+			$db->bind(":url", $names);
+			$db->bind(":product_id", $id);
+			$db->execute();
+		} catch (Exception $ex) {
+		
+		}
 	}
 
 }
 
-// header("Location: ../pages/product.php");
+header("Location: ../pages/product.php");
 
 ?>

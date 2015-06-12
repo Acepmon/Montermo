@@ -11,12 +11,7 @@ $lang = isset($_POST['news_lang']) ? $_POST['news_lang'] : "";
 $thumb = isset($_FILES['news_thumb']) ? $_FILES['news_thumb'] : "";
 $lang = strtolower($lang);
 
-if (!empty($title) & !empty($text) & !empty($date) & !empty($lang)) {	
-	echo "<br>Title : ".$title;
-	echo "<br>Text : ".$text;
-	echo "<br>Date : ".$date;
-	echo "<br>Language : ".$lang;
-	echo "<br><pre>", print_r($thumb), "</pre>";
+if (!empty($title) & !empty($text) & !empty($date) & !empty($lang)) {
 
 
 	// insert into the database
@@ -47,7 +42,7 @@ if (!empty($title) & !empty($text) & !empty($date) & !empty($lang)) {
 
 }
 
-header ("Location: ../pages/news.php");
+header("Location: ../pages/news.php");
 
 
 ?>

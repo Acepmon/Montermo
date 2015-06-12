@@ -9,7 +9,7 @@
 ?>
     <head>
         <meta charset="utf-8">
-        <title>About Page - Travel by templatemo</title>
+        <title>About Page</title>
         <meta name="description" content="">
 <!-- 
 Travel Template 
@@ -25,6 +25,8 @@ http://www.templatemo.com/preview/templatemo_409_travel
         <link rel="stylesheet" href="../css/templatemo_misc.css">
         <link rel="stylesheet" href="../css/templatemo_style.css">
         <link rel="stylesheet" href="../css/custom.css">
+	<link rel="stylesheet" href="../bxslider/jquery.bxslider.css">
+        
 
         <script src="../js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
     </head>
@@ -61,14 +63,18 @@ http://www.templatemo.com/preview/templatemo_409_travel
                                     <img src="../images/brand_images/<?php echo $brand['brand_logo']; ?>">
                                 </div>
                                 <div class="col-md-6">
-                                    <h2><?php echo $brand['brand_title']; ?></h2>
-                                    <span><?php echo $brand['brand_short_desc']; ?></span>
+                                    <h2></h2>
+                                    <br><br>
+                                    <h4><?php echo $brand['brand_short_desc']; ?></h4>
+                                    
                                 </div>
                             </div>
                             <div class="row">
                                 <?php echo $brand['brand_description']; ?>
                             </div>
                             <div class="row">
+				<div class="slider-container">
+                                <ul class="bxslider">
                                 <?php
                                     $db->query("select * from products where brands_brand_id = :brand_id");
                                     $db->bind(":brand_id", $brand['brand_id']);
@@ -84,9 +90,11 @@ http://www.templatemo.com/preview/templatemo_409_travel
                                         }
                                     }
                                 ?>
+				</ul>
+				</div>
                             </div>
                             <div class="row">
-                                <a href="products.php" class="btn btn-primary">Go Back!</a>
+                                <a href="products.php" class="btn btn-primary">Буцах</a>
                             </div>
                         </div>
                     <?php
@@ -98,8 +106,10 @@ http://www.templatemo.com/preview/templatemo_409_travel
 
                     <!-- Side Widget Well -->
                     <div class="well">
-                        <h4>Side Widget Well</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
+                        <h4>ТАНЫ БАЯЖУУЛАЛТЫН ХЭРЭГЦЭЭГ ЦОГЦООР НЬ</h4>
+                        <p>
+                        Утас: (976) - 70001563  <br> Имэйл: sales@montermo.com
+                        </p>
                     </div>
 
                 </div>  
@@ -112,6 +122,7 @@ http://www.templatemo.com/preview/templatemo_409_travel
 
         <script src="../js/vendor/jquery-1.11.0.min.js"></script>
         <script>window.jQuery || document.write('<script src="../js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+	<script src="../bxslider/jquery.bxslider.min.js"></script>
         <script src="../js/bootstrap.js"></script>
         <script src="../js/plugins.js"></script>
         <script src="../js/main.js"></script>

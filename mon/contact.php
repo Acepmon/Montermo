@@ -41,14 +41,13 @@ http://www.templatemo.com/preview/templatemo_409_travel
                 <div class="row">
                     <div class="col-md-7 col-sm-6 map-wrapper">
                         <h3 class="widget-title">Манай хаяг</h3>
-                        <div class="map-holder"></div>
                         <div class="contact-infos">	
                             <ul>
-                                <li>Веб хаяг: <a href="http://www.montermo.com">www.montermo.com</a></li>
-                                <li>Khonkhor-147a, Songinokhairkhan District Khoroo -11, Ulaanbaatar city, Mongolia</li>
-                                <li>P.O.box-089, Ulaanbaatar-14253</li>
+                                <li>Монгол улс, Улаанбаатар хот, Сонгинохайрхан дүүрэг, 11-р хороо, Хонхор-147а</li>
+                                <li>P.O.B-089, Улаанбаатар -14253</li>
                                 <li><br> Утас: (976) - 70001563 <br> Факс: (976) - 70001563</li>
-                                <li>Э-Шуудан: <a href="mailto:ivshin@montermo.com">ivshin@montermo.com, </a><a href="mailto:montermo@yandex.com">montermo@yandex.com</a></li>
+                                <li>Э-Шуудан: <a href="mailto:ivshin@montermo.com">ivshin@montermo.com, </a><a href="mailto:sales@montermo.com">sales@montermo.com</a></li>
+                                <li>Веб хаяг: <a href="http://www.montermo.com">Montermo ХХК</a></li>
                             </ul>
                         </div>
                     </div>
@@ -63,10 +62,10 @@ http://www.templatemo.com/preview/templatemo_409_travel
                                     <input name="email" type="text" id="email" placeholder=" Э-Шуудан"> 
                                 </p>
                                 <p>
-                                    <input name="subject" type="text" id="subject" placeholder="Зэрэглэл"> 
+                                    <input name="subject" type="text" id="subject" placeholder="Албан тушаал"> 
                                 </p>
 								<p>
-                                    <input name="company_name" type="text" id="company_name" placeholder="Байгуулгын нэр"> 
+                                    <input name="company_name" type="text" id="company_name" placeholder="Байгууллагын нэр"> 
                                 </p>
                                 <p>
                                     <textarea name="message" id="message" placeholder="Таны мессеж"></textarea>    
@@ -89,28 +88,5 @@ http://www.templatemo.com/preview/templatemo_409_travel
         <script src="../js/bootstrap.js"></script>
         <script src="../js/plugins.js"></script>
         <script src="../js/main.js"></script>
-
-        <!-- Google Map -->
-        <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-        <script src="../js/vendor/jquery.gmap3.min.js"></script>
-        
-        <!-- Google Map Init-->
-        <script type="text/javascript">
-            jQuery(function($){
-                $('.first-map, .map-holder').gmap3({
-                    marker:{
-                        address: '16.8496189,96.1288854' 
-                    },
-                        map:{
-                        options:{
-                        zoom: 16,
-                        scrollwheel: false,
-                        streetViewControl : true
-                        }
-                    }
-                });
-            });
-        </script>
-        <!-- templatemo 409 travel -->
     </body>
 </html>

@@ -10,14 +10,8 @@
 ?>
     <head>
         <meta charset="utf-8">
-        <title>Events Page - Travel by templatemo</title>
-        <meta name="description" content="">
-<!-- 
-Travel Template 
-http://www.templatemo.com/preview/templatemo_409_travel 
--->
+        <title>News - Montermo.com</title>
         <meta name="viewport" content="width=device-width">
-		<meta name="author" content="templatemo">
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600,300' rel='stylesheet' type='text/css'>
         
         <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -49,12 +43,9 @@ http://www.templatemo.com/preview/templatemo_409_travel
 
             <!-- Blog Entries Column -->
             <div class="col-md-8">
-
                 <h1 class="page-header">
                     <a href="news.php">News</a>
-                    <!-- <small> Recent</small> -->
                 </h1>
-
                 <?php
 
                 $news_id = isset($_GET['news_id']) ? $_GET['news_id'] : null;
@@ -65,9 +56,9 @@ http://www.templatemo.com/preview/templatemo_409_travel
                 $news = $db->single();
                 ?>
                     <div class="news_post">
-                        <h2>
+                        <h3>
                             <?php echo $news['news_header']; ?>
-                        </h2>
+                        </h3>
                         <p>
                             Posted on <?php echo $news['news_date']; ?>
                         </p>
@@ -78,7 +69,7 @@ http://www.templatemo.com/preview/templatemo_409_travel
                         echo $news['news_text'];
                         ?>
                         <br>
-                        <a href="news.php" class="btn btn-primary">Go Back!</a>
+                        <a href="news.php" class="btn btn-primary">Go Back</a>
                     </div>
                 <?php
                 }
@@ -86,15 +77,13 @@ http://www.templatemo.com/preview/templatemo_409_travel
 
             </div>
 
-            <!-- Blog Sidebar Widgets Column -->
             <div class="col-md-4">
-
-                <!-- Side Widget Well -->
                 <div class="well">
-                    <h4>Side Widget Well</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
+                    <h4>ONE SOURCE FOR YOUR BENEFICATION NEEDS</h4>
+                        <p>Tel: (976) - 70001563 <br>
+                        Mail: sales@montermo.com
+                        </p>
                 </div>
-
             </div>
 
         </div>
@@ -112,6 +101,5 @@ http://www.templatemo.com/preview/templatemo_409_travel
         <script src="../js/bootstrap.js"></script>
         <script src="../js/plugins.js"></script>
         <script src="../js/main.js"></script>
-        <!-- templatemo 409 travel -->
     </body>
 </html>

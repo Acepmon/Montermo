@@ -19,15 +19,9 @@ function updateValues($id,$title,$s_desc,$desc,$logo,$lang) {
 	$db->bind(":logo", $logo);
 	$db->bind(":lang", strtolower($lang));
 	$db->bind(":id", $id);
-	if ($db->execute()) {
-		echo "success";
-	} else {
-		echo "fail";
-	}
+	$db->execute();
 }
 function replaceDir($current, $replacement, $new_name, $id) {
-	echo "--> $current";
-	echo " ===> $replacement -=-=-=-=> $new_name";
 	if (strpos($current, "/")) {
 		$dir = explode("/", $current);
 	} else if (strpos($current, "\\")) {
@@ -47,14 +41,6 @@ try {
 	$change = isset($_POST['brand_change']) ? $_POST['brand_change'] : "";
 	$logo = isset($_FILES['brand_logo']) ? $_FILES['brand_logo'] : "";
 	$lang = isset($_POST['brand_lang']) ? $_POST['brand_lang'] : "";
-
-	echo $id."<br>";
-	echo $title."<br>";
-	echo $s_desc."<br>";
-	echo $desc."<br>";
-	echo $change."<br>";
-	print_r($logo);
-	echo "<br>".$lang."<br>";
 
 	if (!empty($id) && !empty($title) && !empty($s_desc) && !empty($lang)) {
 
@@ -76,10 +62,10 @@ try {
 		updateValues($id, $title, $s_desc, $desc, $old_logo, $lang);
 	}
 } catch(Exception $ex) {
-	echo $ex->message();
-} finally {
-	header("Location: ../pages/brand.php");
 }
+
+header("Location: ../pages/brand.php");
+
 
 
 

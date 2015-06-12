@@ -6,6 +6,7 @@
 <html class="no-js"> <!--<![endif]-->
 <?php
     require_once "../admin/backend/db.php";
+    require_once "../admin/backend/helper.php";
 ?>
     <head>
         <meta charset="utf-8">
@@ -56,7 +57,7 @@ http://www.templatemo.com/preview/templatemo_409_travel
                                     <span class="price"><?php echo $slide['slide_title']; ?></span>
                                     <h3 class="title"></h3>
                                     <p><?php echo $slide['slide_description']; ?></p>
-                                    <a href="<?php echo $slide['slide_link']; ?>" class="slider-btn">Learn more</a>
+                                    <!-- <a href="<?php echo $slide['slide_link']; ?>" class="slider-btn">Learn more</a> -->
                                 </div>
                             </div>
                         </div>
@@ -94,7 +95,9 @@ http://www.templatemo.com/preview/templatemo_409_travel
                                 </div>
                                 <div class="list-content">
                                     <h5></h5>
-                                    <span><?php echo $s_desc; ?></span>
+                                    <div class="short_desc">
+                                        <span><?php echo $s_desc; ?></span>
+                                    </div>
                                     <a href="brandsSpecific.php?brands_id=<?php echo $id; ?>" class="price-btn">Цааш унших</a>
                                 </div>
                             </div>
@@ -221,8 +224,8 @@ http://www.templatemo.com/preview/templatemo_409_travel
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h3 class="customHeader">DISCOVER WHO WE ARE, WHAT WE DO</h3>
-				</div>
+                    &nbsp;
+                </div>
 			</div>
             <div class="row blue"><!-- first row -->	
                     
@@ -245,71 +248,50 @@ http://www.templatemo.com/preview/templatemo_409_travel
                     
                     <div class="col-md-4"><!-- third column -->
                         <div class="widget-item">
-                            <h3 class="widget-title"><a href="careers.php">CAREERS</a></h3>
+                            <h3 class="widget-title"><a href="careers.php">Ажлын байр</a></h3>
                             <div class="sample-thumb">
                                 <img src="../images/event_2.jpg" alt="Special Eve" title="Special Eve">
                             </div> <!-- /.sample-thumb -->
-                            <h4 class="consult-title">Одоогийн сул орон тоо</h4>
-                            <p>Ирээдүйд гарах таны түлхүүр</p>
+                            <h4 class="consult-title">Ирээдүйд гарах таны түлхүүр</h4>
+                            <p>
+                            Монтермо ХХК нь ажил олгох болон сонгон шалгаруулах явцад ижил боломжоор хангах нээлттэй бодлого баримталдаг бөгөөд Мэдлэг чадвартай - Эрч хүчтэй - Бүтээлч хүн бүрийг нээлттэй ажлын байранд урьж байна.
+                            </p>
+                            
 							<p class="customMore"><a href="careers.php">&#62; Дэлгэрэнгүй</a></p>
                         </div> <!-- /.widget-item -->
                     </div> <!-- /.col-md-4 -->
                     
 					<div class="col-md-4">
                         <div class="widget-item">
-                            <h3 class="widget-title">Шинэ мэдээ</h3>
-                            <div class="post-small">
-                                <div class="post-date">
-                                    <span class="time">30</span>
-                                    <span>April</span>
-                                </div> <!-- /.post-thumb -->
-                                <div class="post-content">
-                                    <p>
-                                        <a href="newsSpecific.php?news_id=4">
-                                            АНУ-ын PENTAIR компанитай хамтран Оюу Толгой ХХК-ийн баяжуулах үйлдвэрд шугам хоолойн хаалтны судалгааг хийлээ
-                                        </a>
-                                    </p>
-                                </div> <!-- /.post-content -->
-                            </div> <!-- /.post-small -->
-                            <div class="post-small">
-                                <div class="post-date">
-                                    <span class="time">5</span>
-                                    <span>April</span>
-                                </div> <!-- /.post-thumb -->
-                                <div class="post-content">
-                                    <p>
-                                        <a href="newsSpecific.php?news_id=3">
-                                            АНУ-ын “CiDRA Corporate Services Inc”-тэй хамтран “Эрдэнэт Үйлдвэр” ХХК-д сургалт явууллаа
-                                        </a>
-                                    </p>
-                                </div> <!-- /.post-content -->
-                            </div> <!-- /.post-small -->
-                            <div class="post-small">
-                                <div class="post-date">
-                                    <span class="time">21</span>
-                                    <span>Feb</span>
-                                </div> <!-- /.post-thumb -->
-                                <div class="post-content">
-                                    <p>
-                                        <a href="newsSpecific.php?news_id=2">
-                                            АНУ-ын “CiDRA Corporate Services Inc”-тэй хамтран Оюу Толгой ХХК-д техникийн үйлчилгээ үзүүллээ
-                                        </a>
-                                    </p>
-                                </div> <!-- /.post-content -->
-                            </div> <!-- /.post-small -->
-                            <div class="post-small">
-                                <div class="post-date">
-                                    <span class="time">1</span>
-                                    <span>April</span>
-                                </div> <!-- /.post-thumb -->
-                                <div class="post-content">
-                                    <p>
-                                        <a href="newsSpecific.php?news_id=1">
-                                            Монтермо ХХК "Mine Tech 2014" үзэсгэлэнд амжилттай оролцлоо
-                                        </a>
-                                    </p>
-                                </div> <!-- /.post-content -->
-                            </div> <!-- /.post-small -->
+                            <h3 class="widget-title"><a href="news.php">Шинэ мэдээ</a></h3>
+                            <?php
+                                $db->query("select * from news where news_lang = 'english' order by news_id desc limit 4");
+                                foreach($db->resultset() as $res) {
+                                    ?>
+                                    <div class="post-small">
+                                        <div class="post-date">
+                                            <?php
+                                                $date = $res['news_date'];
+                                                $dateExploded = explode("-", $date);
+                                                $month = $dateExploded['1'];
+                                                $day = $dateExploded['2'];
+
+                                                $monthText = getMonthText($month);
+                                            ?>
+                                            <span class="time"><?php echo $day; ?></span>
+                                            <span><?php echo $monthText; ?></span>
+                                        </div>
+                                        <div class="post-content">
+                                            <p>
+                                                <a href="newsSpecific.php?news_id=<?php echo $res['news_id']; ?>">
+                                                    <?php echo $res['news_header']; ?>
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <?php
+                                }
+                            ?>
 							
 							<p class="customMore"><a href="news.php">&#62; Дэлгэрэнгүй</a></p>
 							

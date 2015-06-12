@@ -9,12 +9,6 @@ $link = isset($_POST['slide_link']) ? $_POST['slide_link'] : "";
 $lang = isset($_POST['slide_lang']) ? $_POST['slide_lang'] : "";
 $image = isset($_FILES['slide_image']) ? $_FILES['slide_image'] : "";
 
-echo $id."<br>";
-echo $title."<br>";
-echo $desc."<br>";
-echo $link."<br>";
-echo $lang."<br>";
-
 if (!empty($id) & !empty($title) & !empty($desc) & !empty($link) & !empty($lang)) {
 	$db = new db\Connector();
 	$lang = strtolower($lang);

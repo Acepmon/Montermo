@@ -42,7 +42,7 @@ http://www.templatemo.com/preview/templatemo_409_travel
             
                 <div class="col-lg-3">
                     <ul class="nav nav-pills nav-stacked" role="tablist">
-                        <li role="presentation" class="active"><a href="#life" aria-controls="life" role="tab" data-toggle="tab">Life at Montermo</a></li>
+                        <li role="presentation" class="active"><a href="#life" aria-controls="life" role="tab" data-toggle="tab">Танд олдох боломжууд</a></li>
                         <li role="presentation"><a href="#job" role="tab" data-toggle="tab" aria-control="job">Нээлттэй ажлын байр</a></li>
                         <li role="presentation"><a href="#employment" role="tab" data-toggle="tab" aria-control="employment">Ажилтан сонгон шалгаруулах үйл явц</a></li>
                         <li role="presentation"><a href="#jobapp" role="tab" data-toggle="tab" aria-control="jobapp">Анкет татах</a></li>
@@ -80,10 +80,9 @@ http://www.templatemo.com/preview/templatemo_409_travel
                             </ul>
                         </div>
                         <div class="tab-pane" id="job">
-                            There are currently no positions available
+                            Нээлттэй ажлын байр байхгүй байна.
                         </div>
                         <div class="tab-pane" id="employment">
-                            Нээлттэй ажлын байр байхгүй байна
                         </div>
                         <div class="tab-pane" id="jobapp">
                             Дараах ажлын байрны анкетыг бөглөөд <a href="mailto:hr@montermo.com">hr@montermo.com</a> хаяг руу илгээнэ үү.

@@ -4,9 +4,6 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> 
 <html class="no-js"> <!--<![endif]-->
-<?php
-    require_once "../admin/backend/db.php";
-?>
     <head>
         <meta charset="utf-8">
         <title>Montermo - Homepage</title>
@@ -55,7 +52,7 @@ http://www.templatemo.com/preview/templatemo_409_travel
                                     <span class="price"><?php echo $slide['slide_title']; ?></span>
                                     <h3 class="title"></h3>
                                     <p><?php echo $slide['slide_description']; ?></p>
-                                    <a href="<?php echo $slide['slide_link']; ?>" class="slider-btn">Learn more</a>
+                                    <!-- <a href="<?php echo $slide['slide_link']; ?>" class="slider-btn">Learn more</a> -->
                                 </div>
                             </div>
                         </div>
@@ -93,126 +90,15 @@ http://www.templatemo.com/preview/templatemo_409_travel
                                 </div>
                                 <div class="list-content">
                                     <h5></h5>
-                                    <span><?php echo $s_desc; ?></span>
+                                    <div class="short_desc">
+                                        <span><?php echo $s_desc; ?></span>
+                                    </div>
                                     <a href="brandsSpecific.php?brands_id=<?php echo $id; ?>" class="price-btn">Read more</a>
                                 </div>
                             </div>
                             <?php
                         }
                     ?>
-
-                    <!-- <div class="list-item">
-                        <div class="list-thumb">
-                            <div class="title">
-                                <h4>FLOWROX</h4>
-                            </div>
-                            <img src="../images/brands/flowrox/flowrox_logo.jpg" alt="Flowrox">
-                        </div>
-                        <div class="list-content">
-                            <h5></h5>
-                            <span>Heavy duty valves, pumps and system</span>
-                            <a href="brandsSpecific.php?brands_id=1" class="price-btn">Read more</a>
-                        </div>
-                    </div>
-
-                    <div class="list-item">
-                        <div class="list-thumb">
-                            <div class="title">
-                                <h4>CiDra</h4>
-                            </div>
-                            <img src="../images/brands/cidra/cidra_logo_downgraded.jpg" alt="CiDra">
-                        </div>
-                        <div class="list-content">
-                            <h5></h5>
-                            <span>Pipeline flow & wear monitoring sensors</span>
-                            <a href="brandsSpecific.php?brands_id=2" class="price-btn">Read more</a>
-                        </div>
-                    </div>
-
-                    <div class="list-item">
-                        <div class="list-thumb">
-                            <div class="title">
-                                <h4>Multotec</h4>
-                            </div>
-                            <img src="../images/brands/multotec/multotec_logo.gif" alt="Multotec">
-                        </div>
-                        <div class="list-content">
-                            <h5></h5>
-                            <span>Processing equipment and consumable parts</span>
-                            <a href="brandsSpecific.php?brands_id=3" class="price-btn">Read more</a>
-                        </div>
-                    </div>
-
-                    <div class="list-item">
-                        <div class="list-thumb">
-                            <div class="title">
-                                <h4>Flygt</h4>
-                            </div>
-                            <img src="../images/brands/flygt/flygt_logo.png" alt="Flygt">
-                        </div>
-                        <div class="list-content">
-                            <h5></h5>
-                            <span>Pumps, mixers, monitoring and control equipment</span>
-                            <a href="brandsSpecific.php?brands_id=4" class="price-btn">Read more</a>
-                        </div>
-                    </div>
-
-                    <div class="list-item">
-                        <div class="list-thumb">
-                            <div class="title">
-                                <h4>Puda</h4>
-                            </div>
-                            <img src="../images/brands/puda/puda_logo.jpg" alt="Puda">
-                        </div>
-                        <div class="list-content">
-                            <h5></h5>
-                            <span>Weighing and filling equipments and systems</span>
-                            <a href="brandsSpecific.php?brands_id=5" class="price-btn">Read more</a>
-                        </div>
-                    </div>
-
-                    <div class="list-item">
-                        <div class="list-thumb">
-                            <div class="title">
-                                <h4>Geho</h4>
-                            </div>
-                            <img src="../images/brands/geho/geho_logo.gif" alt="Geho">
-                        </div>
-                        <div class="list-content">
-                            <h5></h5>
-                            <span>PD Slurry pumps</span>
-                            <a href="brandsSpecific.php?brands_id=6" class="price-btn">Read more</a>
-                        </div>
-                    </div>
-
-                    <div class="list-item">
-                        <div class="list-thumb">
-                            <div class="title">
-                                <h4>Kamat</h4>
-                            </div>
-                            <img src="../images/brands/kamat/kamat_logo.gif" alt="Kamat">
-                        </div>
-                        <div class="list-content">
-                            <h5></h5>
-                            <span>High pressure plunger pumps and pump systems</span>
-                            <a href="brandsSpecific.php?brands_id=7" class="price-btn">Read more</a>
-                        </div>
-                    </div>
-
-                    <div class="list-item">
-                        <div class="list-thumb">
-                            <div class="title">
-                                <h4>Tyco</h4>
-                            </div>
-                            <img src="../images/brands/tyco/tyco_logo.jpg" alt="Tyco">
-                        </div>
-                        <div class="list-content">
-                            <h5></h5>
-                            <span>Actuators & Controls</span>
-                            <a href="brandsSpecific.php?brands_id=8" class="price-btn">Read more</a>
-                        </div>
-                    </div>
- -->
                 </div> <!-- /.our-listing -->
             </div> <!-- /.row -->
         </div> <!-- /.container -->
@@ -220,7 +106,7 @@ http://www.templatemo.com/preview/templatemo_409_travel
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h3 class="customHeader">DISCOVER WHO WE ARE, WHAT WE DO</h3>
+                    &nbsp;
 				</div>
 			</div>
             <div class="row blue"><!-- first row -->
@@ -245,67 +131,43 @@ http://www.templatemo.com/preview/templatemo_409_travel
                             <div class="sample-thumb">
                                 <img src="../images/event_2.jpg" alt="Special Eve" title="Special Eve">
                             </div> <!-- /.sample-thumb -->
-                            <h4 class="consult-title">Current Vacancies</h4>
-                            <p>Your key to the future</p>
+                            <h4 class="consult-title">Your key to the future</h4>
+                            <p>We appreciate your interest in joining Montermo LLC. We are always in search of talented individuals that have a sincere desire to join our company.</p>
 							<P class="customMore"><a href="careers.php">&#62; More</a></P>
                         </div> <!-- /.widget-item -->
                     </div> <!-- /.col-md-4 -->
                     
 					<div class="col-md-4">
                         <div class="widget-item">
-                            <h3 class="widget-title">Latest News</h3>
-                            <div class="post-small">
-                                <div class="post-date">
-                                    <span class="time">30</span>
-                                    <span>April</span>
-                                </div> <!-- /.post-thumb -->
-                                <div class="post-content">
-                                    <p>
-                                        <a href="newsSpecific.php?news_id=4">
-                                            АНУ-ын PENTAIR компанитай хамтран Оюу Толгой ХХК-ийн баяжуулах үйлдвэрд шугам хоолойн хаалтны судалгааг хийлээ
-                                        </a>
-                                    </p>
-                                </div> <!-- /.post-content -->
-                            </div> <!-- /.post-small -->
-                            <div class="post-small">
-                                <div class="post-date">
-                                    <span class="time">5</span>
-                                    <span>April</span>
-                                </div> <!-- /.post-thumb -->
-                                <div class="post-content">
-                                    <p>
-                                        <a href="newsSpecific.php?news_id=3">
-                                            АНУ-ын “CiDRA Corporate Services Inc”-тэй хамтран “Эрдэнэт Үйлдвэр” ХХК-д сургалт явууллаа
-                                        </a>
-                                    </p>
-                                </div> <!-- /.post-content -->
-                            </div> <!-- /.post-small -->
-                            <div class="post-small">
-                                <div class="post-date">
-                                    <span class="time">21</span>
-                                    <span>Feb</span>
-                                </div> <!-- /.post-thumb -->
-                                <div class="post-content">
-                                    <p>
-                                        <a href="newsSpecific.php?news_id=2">
-                                            АНУ-ын “CiDRA Corporate Services Inc”-тэй хамтран Оюу Толгой ХХК-д техникийн үйлчилгээ үзүүллээ
-                                        </a>
-                                    </p>
-                                </div> <!-- /.post-content -->
-                            </div> <!-- /.post-small -->
-							<div class="post-small">
-                                <div class="post-date">
-                                    <span class="time">1</span>
-                                    <span>April</span>
-                                </div> <!-- /.post-thumb -->
-                                <div class="post-content">
-                                    <p>
-                                        <a href="newsSpecific.php?news_id=1">
-                                            Монтермо ХХК "Mine Tech 2014" үзэсгэлэнд амжилттай оролцлоо
-                                        </a>
-                                    </p>
-                                </div> <!-- /.post-content -->
-                            </div> <!-- /.post-small -->
+                            <h3 class="widget-title"><a href="news.php">LATEST NEWS</a></h3>
+                        <?php
+                                $db->query("select * from news where news_lang = 'english' order by news_id desc limit 4");
+                                foreach($db->resultset() as $res) {
+                                    ?>
+                                    <div class="post-small">
+                                        <div class="post-date">
+                                            <?php
+                                                $date = $res['news_date'];
+                                                $dateExploded = explode("-", $date);
+                                                $month = $dateExploded['1'];
+                                                $day = $dateExploded['2'];
+
+                                                $monthText = getMonthText($month);
+                                            ?>
+                                            <span class="time"><?php echo $day; ?></span>
+                                            <span><?php echo $monthText; ?></span>
+                                        </div>
+                                        <div class="post-content">
+                                            <p>
+                                                <a href="newsSpecific.php?news_id=<?php echo $res['news_id']; ?>">
+                                                    <?php echo $res['news_header']; ?>
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <?php
+                                }
+                            ?>
 							
 							<p class="customMore"><a href="news.php">&#62; More</a></p>
 							

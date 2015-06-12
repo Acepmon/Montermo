@@ -11,7 +11,7 @@ function deleteDir($dirPath) {
     $files = glob($dirPath . '*', GLOB_MARK);
     foreach ($files as $file) {
         if (is_dir($file)) {
-            self::deleteDir($file);
+            deleteDir($file);
         } else {
             unlink($file);
         }
@@ -20,8 +20,6 @@ function deleteDir($dirPath) {
 }
 
 $id = $_GET['del_id'];
-echo $id;
-
 $db = new db\Connector();
 $db->query("delete from brands where brand_id = :id");
 $db->bind(":id", $id);

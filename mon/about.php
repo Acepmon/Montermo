@@ -6,7 +6,7 @@
 <html class="no-js"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
-        <title>About Page - Travel by templatemo</title>
+        <title>About Page</title>
         <meta name="description" content="">
 <!-- 
 Travel Template 
@@ -46,6 +46,7 @@ http://www.templatemo.com/preview/templatemo_409_travel
                         <li role="presentation"><a href="#values" aria-controls="values" role="tab" data-toggle="tab">Бидний үнэт зүйлс</a></li>
                         <li role="presentation"><a href="#ohse" aria-controls="ohse" role="tab" data-toggle="tab">ХАБЭА</a></li>
                         <li role="presentation"><a href="#crs" aria-controls="crs" role="tab" data-toggle="tab">Нийгмийн хариуцлага</a></li>
+                        <li role="presentation"><a href="#careers" aria-controls="careers" role="tab" data-toggle="tab">Ажлын байр</a></li>
                     </ul>
                 </div>
 
@@ -62,6 +63,23 @@ http://www.templatemo.com/preview/templatemo_409_travel
                                 баяжуулах процесст өргөн хэрэглэгддэг.</p>
                         </div>
                         <div role="tabpanel" class="tab-pane" id="values">
+				<p>
+					АЛСЫН ХАРАА: </br>
+Таны баяжуулалтын хэрэгцээг цогцоор нь
+				</p>
+				</br>
+				<p>ЭРХЭМ ЗОРИЛГО: </br>
+Хүний хөгжил, бизнесийн боломж  бүрийг нээж салбарын жишгийг бид тодорхойлно
+                            </p>
+                            <br>
+                            <p>ҮНЭТ ЗҮЙЛС:</p>
+                            <ul>
+                                <li>Нэгдмэл, эерэг цэнэгэтэй хамт олон</li>
+                                <li>Санал, санаачилга</li>
+                                <li>Аюулгүй ажиллагаа </li>
+                                <li>Мэргэжлийн өндөр чадавхи</li>
+                                <li>Ажилдаа эзэн байх</li>
+                            </ul>
                         </div>
                         <div role="tabpanel" class="tab-pane" id="ohse">
                             <h3>ХӨДӨЛМӨРИЙН АЮУЛГҮЙ БАЙДАЛ ЭРҮҮЛ АХУЙ</h3>
@@ -90,6 +108,9 @@ http://www.templatemo.com/preview/templatemo_409_travel
                                 <li>Монтермо 'Ахмадыг дэмжих хөтөлбөр'</li>
                                 <li>Монтермо 'Эрүүл, аюулгүй орчны хөтөлбөр'</li>
                             </ul>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="careers">
+                            
                         </div>
                     </div>
                 </div>

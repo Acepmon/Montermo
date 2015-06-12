@@ -5,12 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
-        <title>About Page - Travel by templatemo</title>
+        <title>Brands - Montermo.com</title>
         <meta name="description" content="">
-<!-- 
-Travel Template 
-http://www.templatemo.com/preview/templatemo_409_travel 
--->
         <meta name="viewport" content="width=device-width">
 		<meta name="author" content="templatemo">
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600,300' rel='stylesheet' type='text/css'>

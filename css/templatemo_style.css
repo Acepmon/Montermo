@@ -16,6 +16,10 @@ html,body,div,span,applet,object,iframe,p,blockquote,pre,a,abbr,acronym,address,
     vertical-align: baseline;
 }
 
+p {
+	text-align: justify;
+}
+
 body {
     line-height: 1;
 }
@@ -455,7 +459,6 @@ a.flex-next {
 
 h3.widget-title {
     font-size: 20px;
-    text-transform: uppercase;
     display: inline-block;
     margin-bottom: 40px;
 }
@@ -562,7 +565,6 @@ h3.widget-title {
     margin: 0 auto;
     vertical-align: middle;
 }
-
 .list-item .list-content h5 {
     color: #1B86C7;
     font-weight: 600;
@@ -572,8 +574,11 @@ h3.widget-title {
 
 .list-item .list-content span {
     font-weight: 300;
-    text-transform: uppercase;
+    text-transform: capitalize;
     margin: 0 0 15px 0;
+}
+.list-item .list-content .short_desc {
+    height: 30px;
 }
 
 .list-item .list-content a.price-btn {
@@ -582,8 +587,8 @@ h3.widget-title {
     color: #fff;
     padding: 12px;
     text-align: center;
-    text-transform: uppercase;
-    font-size: 14px;
+    text-transform: capitalize;
+    font-size: 12px;
     font-weight: 700;
     margin-top: 15px;
 }

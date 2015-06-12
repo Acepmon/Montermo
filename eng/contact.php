@@ -5,12 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
-        <title>Contact Page - Travel by templatemo</title>
+        <title>Contact us - Montermo.com</title>
         <meta name="description" content="">
-<!-- 
-Travel Template 
-http://www.templatemo.com/preview/templatemo_409_travel 
--->
         <meta name="viewport" content="width=device-width">
 		<meta name="author" content="templatemo">
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600,300' rel='stylesheet' type='text/css'>
@@ -40,14 +36,13 @@ http://www.templatemo.com/preview/templatemo_409_travel
                 <div class="row">
                     <div class="col-md-7 col-sm-6 map-wrapper">
                         <h3 class="widget-title">Our Address</h3>
-                        <div class="map-holder"></div>
                         <div class="contact-infos">						
                             <ul>
-                                <li>Website: <a href="http://www.montermo.com">www.montermo.com</a></li>
                                 <li>Khonkhor-147a, Songinokhairkhan District Khoroo -11, Ulaanbaatar city, Mongolia</li>
                                 <li>P.O.box-089, Ulaanbaatar-14253</li>
                                 <li><br> Tel: (976) - 70001563 <br> Fax: (976) - 70001563</li>
-                                <li>Email: <a href="mailto:ivshin@montermo.com">ivshin@montermo.com, </a><a href="mailto:montermo@yandex.com">montermo@yandex.com</a></li>
+                                <li>Email: <a href="mailto:ivshin@montermo.com">ivshin@montermo.com, </a><a href="mailto:sales@montermo.com">sales@montermo.com</a></li>
+                                <li>Website: <a href="http://www.montermo.com">Montermo LLC</a></li>
                             </ul>
                         </div>
                     </div>
@@ -90,28 +85,6 @@ http://www.templatemo.com/preview/templatemo_409_travel
         <script src="../js/bootstrap.js"></script>
         <script src="../js/plugins.js"></script>
         <script src="../js/main.js"></script>
-
-        <!-- Google Map -->
-        <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-        <script src="../js/vendor/jquery.gmap3.min.js"></script>
-        
-        <!-- Google Map Init-->
-        <script type="text/javascript">
-            jQuery(function($){
-                $('.first-map, .map-holder').gmap3({
-                    marker:{
-                        address: '16.8496189,96.1288854' 
-                    },
-                        map:{
-                        options:{
-                        zoom: 16,
-                        scrollwheel: false,
-                        streetViewControl : true
-                        }
-                    }
-                });
-            });
-        </script>
         <!-- templatemo 409 travel -->
     </body>
 </html>

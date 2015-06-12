@@ -10,8 +10,7 @@
 ?>
     <head>
         <meta charset="utf-8">
-        <title>Events Page - Travel by templatemo</title>
-        <meta name="description" content="">
+        <title>Products - Montermo.com</title>
 <!-- 
 Travel Template 
 http://www.templatemo.com/preview/templatemo_409_travel 
@@ -86,6 +85,5 @@ http://www.templatemo.com/preview/templatemo_409_travel
         <script src="../js/bootstrap.js"></script>
         <script src="../js/plugins.js"></script>
         <script src="../js/main.js"></script>
-        <!-- templatemo 409 travel -->
     </body>
 </html>

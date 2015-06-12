@@ -10,7 +10,7 @@
 ?>
     <head>
         <meta charset="utf-8">
-        <title>Montermo</title>
+        <title>News - Montermo.com</title>
         <meta name="description" content="">
 <!-- 
 Travel Template 
@@ -122,8 +122,10 @@ http://www.templatemo.com/preview/templatemo_409_travel
 
                 <!-- Side Widget Well -->
                 <div class="well">
-                    <h4>Side Widget Well</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
+                    <h4>ONE SOURCE FOR YOUR BENEFICATION NEEDS</h4>
+                        <p>Tel: (976) - 70001563 <br>
+                        Mail: sales@montermo.com
+                        </p>
                 </div>
 
             </div>

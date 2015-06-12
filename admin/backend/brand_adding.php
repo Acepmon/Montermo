@@ -21,8 +21,6 @@ $lang = strtolower($lang);
 
 if (!empty($title) || !empty($desc) || !empty($s_desc)) {
 
-	echo htmlspecialchars($desc);
-
 	$logo_type = $_FILES['brand_logo']['type'];
 	$img_type = $_FILES['brand_img']['type'];
 

@@ -25,7 +25,6 @@ $brand_id = isset($_GET['brand_id']) ? $_GET['brand_id'] : "";
 $db = new db\Connector();
 
 if (!empty($product_id) & !empty($brand_id)) {
-	echo $product_id."<br>".$brand_id;
 	$db->query("delete from product_img where products_product_id = :product_id");
 	$db->bind(":product_id", $product_id);
 	$db->execute();
@@ -33,7 +32,7 @@ if (!empty($product_id) & !empty($brand_id)) {
 	$db->bind(":product_id", $product_id);
 	$db->execute();
 
-	$path = "../../images/brand_images/brand_".$brand_id."/product_".$product_id."/";
+	$path = "../../images/brand_images/brand_".$brand_id."/products/";
 	deleteDir($path);
 }
 
