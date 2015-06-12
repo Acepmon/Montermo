@@ -13,13 +13,60 @@
 	
 	<div class="row">
 		<div class="col-md-12 col-sm-12">
-			<table class="footerTable" width="100%" border="0" cellspacing="5">
-				<?php 
-					$db = new db\Connector();
-					$db->query("select brand_title from brands");
-					$db->resultset();
-					
+			<?php 
+				$db = new db\Connector();
+				$db->query("select * from brands where brand_lang = 'english'");
+				$result = $db->resultset();
+				$res = break_array($result, 2);
+			?>
+			<table class="footerTable pull-left" width="50%">
+				<tr>
+					<th colspan="2" scope="col">Global Brands</th>
+				</tr>
+				<?php
+				foreach ($res as $r) {
+					echo "<tr>";
+					foreach ($r as $a) {
+						$id = $a['brand_id'];
+						$title = $a['brand_title'];
+						?>
+						<td><a href="brandsSpecific.php?brands_id=<?php echo $id; ?>"><?php echo $title; ?></a></td>
+						<?php
+					}
+					echo "</tr>";
+				}
 				?>
+			</table>
+			<table class="footerTable pull-left" width="50%">
+				<tr>
+					<th>Our Company</th>
+					<th>Careers</th>
+					<th>Contact us</th>
+				</tr>
+				<tr>
+					<td><a href="about.php?tab=story">Our story</a></td>
+					<td><a href="about.php?tab=values">Our values</a></td>
+					<td><a href="about.php?tab=ohse">OHSE</a></td>
+				</tr>
+				<tr>
+					<td><a href="careers.php?tab=life">Life at Montermo</a></td>
+					<td><a href="careers.php?tab=job">Job Posting</a></td>
+					<td><a href="careers.php?tab=">Employment Procedure</a></td>
+				</tr>
+				<tr>
+					<td><a href="contact.php?tab=send">Send message</a></td>
+					<td><a href="contact.php?tab=cust">Customer Service</a></td>
+					<td><a href="contact.php?tab=find">Find a location</a></td>
+				</tr>
+				<tr>
+					<td><a href="about.php?tab=csr">CSR</a></td>
+					<td><a href="careers.php?tab=fill">Fill out Job Application</a></td>
+					<td></td>
+				</tr>
+			</table>
+			<div class="clearfix"></div>
+			<!-- <table class="footerTable" width="100%" border="0" cellspacing="5">
+				
 			  <tr>
 				<th colspan="2" scope="col">Global Brands</a></th>
 				<th width="18%" scope="col">Our Company</a></th>
@@ -54,14 +101,7 @@
 				<td><a href="careers.php">Fill out Job Application</a></td>
 				<td>&nbsp;</td>
 			  </tr>
-			  <tr>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td></td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-			  </tr>
-			</table>
+			</table> -->
 		</div>
 	</div>
 	

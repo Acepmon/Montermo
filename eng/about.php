@@ -36,6 +36,12 @@
 
         <div class="middle-content" id="aboutus">
             <div class="container">
+
+                <?php
+
+                    $tab = isset($_GET['tab']) ? $_GET['tab'] : "";
+
+                ?>
             
                 <div class="col-lg-3">
                     <ul class="nav nav-pills nav-stacked" role="tablist">
