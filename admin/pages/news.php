@@ -229,55 +229,30 @@
                         echo "<div class='alert alert-warning'><span class='glyphicon glyphicon-warning-sign'></span> No news!</div>";
 
                     } else {
-
                         echo "<ul class='list-group'>";
-
                         foreach ($newses as $news) {
-
                             ?>
-
                             <li class="list-group-item">
-
                                 <div class="col-sm-1 text-left">
-
                                     <h4><?php echo ucfirst($news['news_lang']); ?></h4>
-
                                 </div>
-
                                 <div class="col-sm-9 text-center">
-
                                     <a href="#news_view<?php echo $news['news_id']; ?>" data-toggle="collapse"><h4><?php echo $news['news_header'];?></h4></a>
-
                                 </div>
-
                                 <div class="col-sm-2 text-right">
-
                                     <a href="../backend/news_deleting.php?news_id=<?php echo $news['news_id']; ?>" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</a>
-
                                 </div>
-
                                 <div id="news_view<?php echo $news['news_id']; ?>" class="col-sm-12 panel-collapse collapse">
-
                                     <img src="../../images/news/<?php echo $news['news_thumb']; ?>" alt="" class="img-responsive">
-
                                     <div>
-
                                         <?php echo $news['news_text']; ?>
-
                                     </div>
-
                                 </div>
-
                                 <div class="clearfix"></div>
-
                             </li>
-
                             <?php
-
                         }
-
                         echo "</ul>";
-
                     }
 
                     ?>

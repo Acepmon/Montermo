@@ -39,28 +39,34 @@
 			</table>
 			<table class="footerTable pull-left" width="50%">
 				<tr>
-					<th>Our Company</th>
-					<th>Careers</th>
+					<th>About us</th>
+					<th>Services</th>
 					<th>Contact us</th>
 				</tr>
 				<tr>
 					<td><a href="about.php?tab=story">Our story</a></td>
-					<td><a href="about.php?tab=values">Our values</a></td>
-					<td><a href="about.php?tab=ohse">OHSE</a></td>
-				</tr>
-				<tr>
 					<td><a href="careers.php?tab=life">Life at Montermo</a></td>
-					<td><a href="careers.php?tab=job">Job Posting</a></td>
-					<td><a href="careers.php?tab=">Employment Procedure</a></td>
+					<td><a href="contact.php?tab=send">Send message</a></td>
 				</tr>
 				<tr>
-					<td><a href="contact.php?tab=send">Send message</a></td>
+					<td><a href="about.php?tab=values">Our values</a></td>
+					<td><a href="careers.php?tab=job">Job Posting</a></td>
 					<td><a href="contact.php?tab=cust">Customer Service</a></td>
+					
+				</tr>
+				<tr>
+					<td><a href="about.php?tab=ohse">OHSE</a></td>
+					<td><a href="careers.php?tab=employment">Employment Procedure</a></td>
 					<td><a href="contact.php?tab=find">Find a location</a></td>
 				</tr>
 				<tr>
 					<td><a href="about.php?tab=csr">CSR</a></td>
-					<td><a href="careers.php?tab=fill">Fill out Job Application</a></td>
+					<td><a href="careers.php?tab=jobapp">Fill out Job Application</a></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><a href="about.php?tab=careers">Careers</a></td>
+					<td></td>
 					<td></td>
 				</tr>
 			</table>

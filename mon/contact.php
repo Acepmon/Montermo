@@ -22,6 +22,8 @@ http://www.templatemo.com/preview/templatemo_409_travel
         <link rel="stylesheet" href="../css/templatemo_style.css">
         <link rel="stylesheet" href="../css/custom.css">
 
+        <link rel="icon" type="image/png" href="../images/favicon.png" />
+
         <script src="../js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
     </head>
     <body>
@@ -47,7 +49,7 @@ http://www.templatemo.com/preview/templatemo_409_travel
                                 <li>P.O.B-089, Улаанбаатар -14253</li>
                                 <li><br> Утас: (976) - 70001563 <br> Факс: (976) - 70001563</li>
                                 <li>Э-Шуудан: <a href="mailto:ivshin@montermo.com">ivshin@montermo.com, </a><a href="mailto:sales@montermo.com">sales@montermo.com</a></li>
-                                <li>Веб хаяг: <a href="http://www.montermo.com">Montermo ХХК</a></li>
+                                <li>Веб хаяг: <a href="http://www.montermo.com">Монтермо ХХК</a></li>
                             </ul>
                         </div>
                     </div>

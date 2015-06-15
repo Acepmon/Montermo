@@ -19,6 +19,8 @@
         <link rel="stylesheet" href="../css/templatemo_style.css">
         <link rel="stylesheet" href="../css/custom.css">
 
+        <link rel="icon" type="image/png" href="../images/favicon.png" />
+
         <script src="../js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
     </head>
     <body>
@@ -35,31 +37,47 @@
 
         <div class="middle-content" id="aboutus" ng-app="our_company">
             <div class="container">
+
+                <?php
+
+                    $tab = isset($_GET['tab']) ? $_GET['tab'] : "";
+                    $tab_c = 0;
+                    if ($tab == "life") {
+                        $tab_c = 0;
+                    } else if ($tab == "job") {
+                        $tab_c = 1;
+                    } else if ($tab == "employment") {
+                        $tab_c = 2;
+                    } else if ($tab == "jobapp") {
+                        $tab_c = 3;
+                    }
+
+                ?>
             
                 <div class="col-lg-3">
                     <ul class="nav nav-pills nav-stacked" role="tablist">
-                        <li role="presentation" class="active"><a href="#life" aria-controls="life" role="tab" data-toggle="tab">Life at Montermo</a></li>
-                        <li role="presentation"><a href="#job" role="tab" data-toggle="tab" aria-control="job">Job Posting</a></li>
-                        <li role="presentation"><a href="#employment" role="tab" data-toggle="tab" aria-control="employment">Employment procedure</a></li>
-                        <li role="presentation"><a href="#jobapp" role="tab" data-toggle="tab" aria-control="jobapp">Fill out job Application</a></li>
+                        <li role="presentation" <?php if ($tab_c==0) echo "class='active'"; ?>><a href="#life" aria-controls="life" role="tab" data-toggle="tab">Life at Montermo</a></li>
+                        <li role="presentation" <?php if ($tab_c==1) echo "class='active'"; ?>><a href="#job" role="tab" data-toggle="tab" aria-control="job">Job Posting</a></li>
+                        <li role="presentation" <?php if ($tab_c==2) echo "class='active'"; ?>><a href="#employment" role="tab" data-toggle="tab" aria-control="employment">Employment procedure</a></li>
+                        <li role="presentation" <?php if ($tab_c==3) echo "class='active'"; ?>><a href="#jobapp" role="tab" data-toggle="tab" aria-control="jobapp">Fill out job Application</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-9">
                     <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane active" id="life">
+                        <div role="tabpanel" class="tab-pane <?php if ($tab_c==0) echo "active"; ?>" id="life">
                            <p> We appreciate your interest in joining Montermo LLC. We are always in search of talented individuals that have a sincere desire to join our company.</p>
 <p>We are looking for individuals who are committed to quality, recognize and focus on their clients, commit to “digging” deep into discovering why problems are occurring, realize the benefit of understanding what is actually going on in the workplace to solve problems and/or make improvements, understand the importance of clear communication of goals and objectives, value their business partners, and recognize that employees are the most important asset to our company.</p>
 <p>Please take the time to search for YOUR next opportunity.</p>
 
                         </div>
-                        <div class="tab-pane" id="job">
+                        <div class="tab-pane <?php if ($tab_c==1) echo "active"; ?>" id="job">
                             There are currently no positions available
                         </div>
-                        <div class="tab-pane" id="employment">
+                        <div class="tab-pane <?php if ($tab_c==2) echo "active"; ?>" id="employment">
                             
                         </div>
-                        <div class="tab-pane" id="jobapp">
+                        <div class="tab-pane <?php if ($tab_c==3) echo "active"; ?>" id="jobapp">
                             Please fill out following application and send it to <a href="mailto:hr@montermo.com">hr@montermo.com</a>
                         </div>
                     </div>

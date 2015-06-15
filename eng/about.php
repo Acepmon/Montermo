@@ -20,6 +20,8 @@
         <link rel="stylesheet" href="../css/templatemo_style.css">
         <link rel="stylesheet" href="../css/custom.css">
 
+        <link rel="icon" type="image/png" href="../images/favicon.png" />
+
         <script src="../js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
     </head>
     <body>
@@ -40,22 +42,34 @@
                 <?php
 
                     $tab = isset($_GET['tab']) ? $_GET['tab'] : "";
+                    $tab_c = 0;
+                    if ($tab == "story") {
+                        $tab_c = 0;
+                    } else if ($tab == "values") {
+                        $tab_c = 1;
+                    } else if ($tab == "ohse") {
+                        $tab_c = 2;
+                    } else if ($tab == "csr") {
+                        $tab_c = 3;
+                    } else if ($tab == "careers") {
+                        $tab_c = 4;
+                    }
 
                 ?>
             
                 <div class="col-lg-3">
                     <ul class="nav nav-pills nav-stacked" role="tablist">
-                        <li role="presentation" class="active"><a href="#story" aria-controls="story" role="tab" data-toggle="tab">Our Story</a></li>
-                        <li role="presentation"><a href="#values" aria-controls="values" role="tab" data-toggle="tab">Our values</a></li>
-                        <li role="presentation"><a href="#ohse" aria-controls="ohse" role="tab" data-toggle="tab">OHSE</a></li>
-                        <li role="presentation"><a href="#crs" aria-controls="crs" role="tab" data-toggle="tab">CSR</a></li>
-                        <li role="presentation"><a href="#careers" aria-controls="careers" role="tab" data-toggle="tab">Careers</a></li>
+                        <li role="presentation" <?php if ($tab_c==0) echo "class='active'"; ?>><a href="#story" aria-controls="story" role="tab" data-toggle="tab">Our Story</a></li>
+                        <li role="presentation" <?php if ($tab_c==1) echo "class='active'"; ?>><a href="#values" aria-controls="values" role="tab" data-toggle="tab">Our values</a></li>
+                        <li role="presentation" <?php if ($tab_c==2) echo "class='active'"; ?>><a href="#ohse" aria-controls="ohse" role="tab" data-toggle="tab">OHSE</a></li>
+                        <li role="presentation" <?php if ($tab_c==3) echo "class='active'"; ?>><a href="#crs" aria-controls="crs" role="tab" data-toggle="tab">CSR</a></li>
+                        <li role="presentation" <?php if ($tab_c==4) echo "class='active'"; ?>><a href="#careers" aria-controls="careers" role="tab" data-toggle="tab">Careers</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-9">
                     <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane active" id="story">
+                        <div role="tabpanel" class="tab-pane <?php if ($tab_c==0) echo "active"; ?>" id="story">
                             <p>Montermo LLC is a specialist supplier and service provider to mining, 
                                 mineral processing & beneficiation, and power generation industries of 
                                 Mongolia. Montermo LLC was established in 2008 and it`s a 100% privately 
@@ -63,13 +77,13 @@
                             <p>Our product and services covers a wide range of minerals such as iron ore, 
                                 copper, gold, coal, molybdenum and fluorspar.</p>
                         </div>
-                        <div role="tabpanel" class="tab-pane" id="values">
+                        <div role="tabpanel" class="tab-pane <?php if ($tab_c==1) echo "active"; ?>" id="values">
                         	<h3>Occupational Health & Safety Environment</h3>
                         	<p>
                         		
                         	</p>
                         </div>
-                        <div role="tabpanel" class="tab-pane" id="ohse">
+                        <div role="tabpanel" class="tab-pane <?php if ($tab_c==2) echo "active"; ?>" id="ohse">
                             <h3>Occupational Health & Safety Environment</h3>
                             <p>Montermo LLC undertakes all its actions and activities in accordance with the 
                                 policy of “Occupational Health & Safety Environment” and has a deep commitment 
@@ -78,7 +92,7 @@
                                 and our employees; that satisfactory procedures are met to have an occupational 
                                 health and safety policy in accordance with local and international safety standards.</p>
                         </div>
-                        <div role="tabpanel" class="tab-pane" id="crs">
+                        <div role="tabpanel" class="tab-pane <?php if ($tab_c==3) echo "active"; ?>" id="crs">
                             <h3>Corporate Social Responsibility</h3>
                             <p>
                                 Montermo LLC is committed to transparent, socially responsible and 
@@ -93,7 +107,7 @@
                                 <li>Montermo 'Health and Safe Environment Program'</li>
                             </ul>
                         </div>
-                        <div role="tabpanel" class="tab-pane" id="careers">
+                        <div role="tabpanel" class="tab-pane <?php if ($tab_c==4) echo "active"; ?>" id="careers">
                             
                         </div>
                     </div>

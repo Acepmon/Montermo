@@ -23,6 +23,8 @@ http://www.templatemo.com/preview/templatemo_409_travel
         <link rel="stylesheet" href="../css/templatemo_style.css">
         <link rel="stylesheet" href="../css/custom.css">
 
+        <link rel="icon" type="image/png" href="../images/favicon.png" />
+
         <script src="../js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
     </head>
     <body>
@@ -39,19 +41,35 @@ http://www.templatemo.com/preview/templatemo_409_travel
 
         <div class="middle-content" id="aboutus" ng-app="our_company">
             <div class="container">
+
+                <?php
+
+                    $tab = isset($_GET['tab']) ? $_GET['tab'] : "";
+                    $tab_c = 0;
+                    if ($tab == "life") {
+                        $tab_c = 0;
+                    } else if ($tab == "job") {
+                        $tab_c = 1;
+                    } else if ($tab == "employment") {
+                        $tab_c = 2;
+                    } else if ($tab == "jobapp") {
+                        $tab_c = 3;
+                    }
+
+                ?>
             
                 <div class="col-lg-3">
                     <ul class="nav nav-pills nav-stacked" role="tablist">
-                        <li role="presentation" class="active"><a href="#life" aria-controls="life" role="tab" data-toggle="tab">Танд олдох боломжууд</a></li>
-                        <li role="presentation"><a href="#job" role="tab" data-toggle="tab" aria-control="job">Нээлттэй ажлын байр</a></li>
-                        <li role="presentation"><a href="#employment" role="tab" data-toggle="tab" aria-control="employment">Ажилтан сонгон шалгаруулах үйл явц</a></li>
-                        <li role="presentation"><a href="#jobapp" role="tab" data-toggle="tab" aria-control="jobapp">Анкет татах</a></li>
+                        <li role="presentation" <?php if ($tab_c==0) echo "class='active'"; ?>><a href="#life" aria-controls="life" role="tab" data-toggle="tab">Танд олдох боломжууд</a></li>
+                        <li role="presentation" <?php if ($tab_c==1) echo "class='active'"; ?>><a href="#job" role="tab" data-toggle="tab" aria-control="job">Нээлттэй ажлын байр</a></li>
+                        <li role="presentation" <?php if ($tab_c==2) echo "class='active'"; ?>><a href="#employment" role="tab" data-toggle="tab" aria-control="employment">Ажилтан сонгон шалгаруулах үйл явц</a></li>
+                        <li role="presentation" <?php if ($tab_c==3) echo "class='active'"; ?>><a href="#jobapp" role="tab" data-toggle="tab" aria-control="jobapp">Анкет татах</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-9">
                     <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane active" id="life">
+                        <div role="tabpanel" class="tab-pane <?php if ($tab_c==0) echo "active"; ?>" id="life">
                             <p>
                                 Монтермо ХХК нь ажил олгох болон сонгон шалгаруулах явцад ижил 
                                 боломжоор хангах нээлттэй бодлого баримталдаг бөгөөд Мэдлэг 
@@ -79,12 +97,12 @@ http://www.templatemo.com/preview/templatemo_409_travel
                                 <li>Компьютерийн хэрэглээний программуудыг бүрэн эзэмшсэн</li>
                             </ul>
                         </div>
-                        <div class="tab-pane" id="job">
+                        <div class="tab-pane <?php if ($tab_c==1) echo "active"; ?>" id="job">
                             Нээлттэй ажлын байр байхгүй байна.
                         </div>
-                        <div class="tab-pane" id="employment">
+                        <div class="tab-pane <?php if ($tab_c==2) echo "active"; ?>" id="employment">
                         </div>
-                        <div class="tab-pane" id="jobapp">
+                        <div class="tab-pane <?php if ($tab_c==3) echo "active"; ?>" id="jobapp">
                             Дараах ажлын байрны анкетыг бөглөөд <a href="mailto:hr@montermo.com">hr@montermo.com</a> хаяг руу илгээнэ үү.
                         </div>
                     </div>
