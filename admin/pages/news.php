@@ -240,6 +240,7 @@
                                     <a href="#news_view<?php echo $news['news_id']; ?>" data-toggle="collapse"><h4><?php echo $news['news_header'];?></h4></a>
                                 </div>
                                 <div class="col-sm-2 text-right">
+                                    <a href="#news_edit_modal<?php echo $news['news_id']; ?>" data-toggle="modal" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
                                     <a href="../backend/news_deleting.php?news_id=<?php echo $news['news_id']; ?>" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</a>
                                 </div>
                                 <div id="news_view<?php echo $news['news_id']; ?>" class="col-sm-12 panel-collapse collapse">
@@ -250,6 +251,59 @@
                                 </div>
                                 <div class="clearfix"></div>
                             </li>
+
+                            <div id="news_edit_modal<?php echo $news['news_id']; ?>" class="modal fade" tabindex="-1" data-toggle="modal" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <form action="">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h3>News edit</h3>
+                                            </div>
+                                            <div class="modal-body">
+                                                <fieldset class="form-group">
+                                                    <label for="news_edit_header">Header</label>
+                                                    <input type="text" class="form-control" name="news_edit_header" value="<?php echo $news['news_header'];?>" required>
+                                                </fieldset>
+                                                <fieldset class="form-group">
+                                                    <label for="news_edit_text">Text</label>
+                                                    <textarea name="news_edit_text" cols="30" rows="10" class="form-control" required><?php echo htmlspecialchars($news['news_text']); ?></textarea>
+                                                </fieldset>
+                                                <fieldset class="form-group">
+                                                    <label for="news_edit_date">Date</label>
+                                                    <input type="text" class="form-control" name="news_edit_date" value="<?php echo $news['news_date'];?>" required>
+                                                </fieldset>
+                                                <fieldset class="form-group col-sm-6">
+                                                    <?php
+                                                    if (empty($news['news_thumb'])) {
+                                                        echo "<img src='../../images/imgnot.jpeg' class='img-responsive'>";
+                                                    } else {
+                                                    ?>
+                                                    <img src="../../images/news/<?php echo $news['news_thumb']; ?>" alt="" class="img-responsive">
+                                                    <?php } ?>
+                                                </fieldset>
+                                                <fieldset class="form-group col-sm-6">
+                                                    <input type="checkbox" news_edit="change">&nbsp;<label for="news_edit_thumb">Change picture</label>
+                                                    <input type="file" name="news_edit_thumb" accept="image/">
+                                                </fieldset>
+                                                <div class="clearfix"></div>
+                                                <fieldset class="form-group">
+                                                    <label for="news_edit_lang">Language</label>
+                                                    <select name="news_edit_lang" class="form-control">
+                                                        <option <?php if($news['news_lang'] == "english") echo 'selected';?>>English</option>
+                                                        <option <?php if($news['news_lang'] == "mongolian") echo 'selected';?>>Mongolian</option>
+                                                    </select>
+                                                </fieldset>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-success">Save</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
                             <?php
                         }
                         echo "</ul>";
