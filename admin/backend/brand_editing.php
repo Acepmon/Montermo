@@ -66,8 +66,4 @@ try {
 
 header("Location: ../pages/brand.php");
 
-
-
-
-
 ?>

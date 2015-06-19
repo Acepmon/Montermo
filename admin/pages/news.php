@@ -15,39 +15,20 @@
 
 
 <head>
-
-
-
     <meta charset="utf-8">
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <meta name="description" content="">
-
     <meta name="author" content="">
-
-
-
     <title>Montermo</title>
-
-
-
+    
     <!-- Bootstrap Core CSS -->
-
     <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
-
-
     <!-- MetisMenu CSS -->
-
     <link href="../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
 
-
-
     <!-- Timeline CSS -->
-
     <link href="../dist/css/timeline.css" rel="stylesheet">
 
 
@@ -157,65 +138,33 @@
 
 
             <div class="navbar-default sidebar" role="navigation">
-
                 <div class="sidebar-nav navbar-collapse">
-
                     <ul class="nav" id="side-menu">
-
                         <li>
-
                             <a href="index.php">Dashboard</a>
-
                         </li>
-
                         <li>
-
                             <a href="news.php">News</a>
-
                         </li>
-
                         <li>
-
                             <a href="brand.php">Brands</a>
-
                         </li>
-
                         <li>
-
                             <a href="product.php">Product</a>
-
                         </li> 
-
                         <li>
-
                             <a href="inbox.php">Inbox</a>
-
                         </li>
-
                     </ul>
-
                 </div>
-
-                <!-- /.sidebar-collapse -->
-
             </div>
-
-            <!-- /.navbar-static-side -->
-
         </nav>
 
 
-
         <div id="page-wrapper">
-
             <div class="row">
-
                 <div class="col-lg-12">
-
                     <h1 class="page-header">News <a href="#news_add_modal" class="btn btn-success pull-right" data-toggle="modal"><span class="glyphicon glyphicon-plus"></span> Publish news</a></h1>
-
-
-
                     <?php
 
                     $db = new db\Connector();
@@ -255,12 +204,13 @@
                             <div id="news_edit_modal<?php echo $news['news_id']; ?>" class="modal fade" tabindex="-1" data-toggle="modal" role="dialog" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
-                                        <form action="">
+                                        <form action="../backend/news_editing.php" method="POST" enctype="multipart/form-data">
                                             <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                 <h3>News edit</h3>
                                             </div>
                                             <div class="modal-body">
+                                                <input type="hidden" name="news_edit_id" value="<?php echo $news['news_id']; ?>">
                                                 <fieldset class="form-group">
                                                     <label for="news_edit_header">Header</label>
                                                     <input type="text" class="form-control" name="news_edit_header" value="<?php echo $news['news_header'];?>" required>
@@ -312,9 +262,7 @@
                     ?>
 
                 </div>
-
             </div>
-
         </div>
 
         <!-- /#page-wrapper -->
@@ -322,92 +270,48 @@
 
 
         <div id="news_add_modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-
             <div class="modal-dialog">
-
                 <div class="modal-content">
-
                     <form method="POST" action="../backend/news_adding.php" enctype="multipart/form-data">
-
                     <div class="modal-header">
-
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-
                         <h3>Publish News</h3>
-
                     </div>
-
                     <div class="modal-body" id="output_modal_content">
-
                         <fieldset class="form-group">
-
                             <label>Title</label>
-
                             <input type="text" class="form-control" name="news_header" required>
-
                         </fieldset>
-
                         <fieldset class="form-group">
-
                             <label>Text</label>
-
                             <textarea class="form-control" name="news_text" rows="10" required></textarea>
-
                         </fieldset>
-
                         <fieldset>
-
                             <label>Date</label>
-
                             <input type="text" name="news_date" class='form-control' value="<?php echo date("Y-m-d"); ?>">
-
                         </fieldset>
-
                         <br>
-
                         <fieldset class="form-group">
-
                             <label>Header image</label>
-
                             <input type="file" name="news_thumb" accept="image/*">
-
                         </fieldset>
-
                         <fieldset class="form-group">
-
                             <label>Language</label>
-
                             <select name="news_lang" class="form-control">
-
                                 <option>English</option>
-
                                 <option>Mongolian</option>
-
                             </select>
-
                         </fieldset>
-
                         <div class="clearfix"></div>
-
                     </div>
-
                     <div class="modal-footer">
-
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
                         <button type="submit" class="btn btn-success">Submit Data</button>
-
                     </div>
-
                     </form>
-
                 </div>
-
             </div>
-
         </div>
-
-
 
     </div>
 

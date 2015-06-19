@@ -8,7 +8,6 @@
         <title>Contact us - Montermo.com</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-		<meta name="author" content="templatemo">
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600,300' rel='stylesheet' type='text/css'>
         
         <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -28,10 +27,10 @@
 
         <div class="site-header">
             <?php include 'menu.php'; ?>
-        </div> <!-- /.site-header -->
+        </div>
 
         <div class="page-top" id="templatemo_contact">
-        </div> <!-- /.page-header -->
+        </div>
 
         <div class="contact-page">
             <div class="container">
