@@ -22,8 +22,7 @@ http://www.templatemo.com/preview/templatemo_409_travel
         <link rel="stylesheet" href="../css/templatemo_misc.css">
         <link rel="stylesheet" href="../css/templatemo_style.css">
         <link rel="stylesheet" href="../css/custom.css">
-
-        <link rel="icon" type="image/png" href="../images/favicon.png" />
+        <link rel="stylesheet" href="../css/mon_arial.css">
 
         <script src="../js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
     </head>
@@ -41,70 +40,62 @@ http://www.templatemo.com/preview/templatemo_409_travel
 
         <div class="middle-content" id="aboutus" ng-app="our_company">
             <div class="container">
-
-                <?php
-
-                    $tab = isset($_GET['tab']) ? $_GET['tab'] : "";
-                    $tab_c = 0;
-                    if ($tab == "life") {
-                        $tab_c = 0;
-                    } else if ($tab == "job") {
-                        $tab_c = 1;
-                    } else if ($tab == "employment") {
-                        $tab_c = 2;
-                    } else if ($tab == "jobapp") {
-                        $tab_c = 3;
-                    }
-
-                ?>
             
                 <div class="col-lg-3">
                     <ul class="nav nav-pills nav-stacked" role="tablist">
-                        <li role="presentation" <?php if ($tab_c==0) echo "class='active'"; ?>><a href="#life" aria-controls="life" role="tab" data-toggle="tab">Танд олдох боломжууд</a></li>
-                        <li role="presentation" <?php if ($tab_c==1) echo "class='active'"; ?>><a href="#job" role="tab" data-toggle="tab" aria-control="job">Нээлттэй ажлын байр</a></li>
-                        <li role="presentation" <?php if ($tab_c==2) echo "class='active'"; ?>><a href="#employment" role="tab" data-toggle="tab" aria-control="employment">Ажилтан сонгон шалгаруулах үйл явц</a></li>
-                        <li role="presentation" <?php if ($tab_c==3) echo "class='active'"; ?>><a href="#jobapp" role="tab" data-toggle="tab" aria-control="jobapp">Анкет татах</a></li>
+                        <li role="presentation" class="active"><a href="#life" aria-controls="life" role="tab" data-toggle="tab">Техник үйлчилгээ</a></li>
+                        <li role="presentation"><a href="#job" role="tab" data-toggle="tab" aria-control="job">Зөвлөгөө</a></li>
+                        <li role="presentation"><a href="#employment" role="tab" data-toggle="tab" aria-control="employment">Суурилуулалт</a></li>
+                        <!-- <li role="presentation"><a href="#jobapp" role="tab" data-toggle="tab" aria-control="jobapp">Анкет татах</a></li> -->
                     </ul>
                 </div>
 
                 <div class="col-lg-9">
                     <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane <?php if ($tab_c==0) echo "active"; ?>" id="life">
-                            <p>
-                                Монтермо ХХК нь ажил олгох болон сонгон шалгаруулах явцад ижил 
-                                боломжоор хангах нээлттэй бодлого баримталдаг бөгөөд Мэдлэг 
-                                чадвартай - Эрч хүчтэй - Бүтээлч хүн бүрийг нээлттэй ажлын 
-                                байранд урьж байна.
-                            </p>
+                        <div role="tabpanel" class="tab-pane active" id="life">
+                            <h3>Техник үйлчилгээ</h3>
+                            <P>
+                                Бид харилцагчиддаа өндөр чанар бүхий сэлбэг хэрэгсэл, эд анги нийлүүлэхээс 
+                                гадна хамгийн шилдэг найдвартай үйлчилгээг үзүүлэхийг цаг ямагт эрхэмлэн ажилладаг. 
+                                Ингэснээр харилцагч бүрийнхээ тоног төхөөрөмжийн тасралтгүй ажиллагааг хангах, үйлдвэрлэлийг 
+                                хэвийн явуулах, бүтээмжийг нэмэгдүүлэх, сэтгэл ханамжийг дээшлүүлэхэд бодит хувь нэмэр оруулдаг юм. 
+                            </P>
+                            <img src="../images/services/news4.jpg" style="min-width: auto; max-width: 100%; height: auto; margin-top: 20px;">
+                        </div>
+                        <div class="tab-pane" id="job">
+                            <h3>Зөвлөгөө</h3>
+                            <P>
+                                Бид уул уурхайн баяжуулах салбарын тоног төхөөрөмж, сэлбэг хэрэгсэл үйлдвэрлэгчдийн талаар 
+                                мэдээллийн баазтай ба салбартаа тэргүүлэгч үйлдвэрлэгчидтэй хамтран ажилладаг. Бид өөрсдийн 
+                                туршлага, мэдлэг, харилцаа холбоонд үндэслэн, харилцагчийнхаа тусгай хэрэгцээ, шаардлагад нийцсэн, 
+                                ханган нийлүүлэх, зөвлөх үйлчилгээг үзүүлдэг.
+                            </P>
                             <br>
-                            <strong>ТАНД ОЛГОХ БОЛОМЖУУД:</strong>
-                            <ul>
-                                <li>Тогтвортой, таатай ажлын байр</li>
-                                <li>Зах зээлд өрсөлдөхүйц цалин</li>
-                                <li>Ажлын гүйцэтгэлээс хамаарсан урамшууллын бодлого</li>
-                                <li>Ажил хэрэгч, эвсэг хамт олон</li>
-                                <li>Өсч дэвжих, өөрийгөө хөгжүүлэх өргөн боломж</li>
-                                <li>Нийгмийн төрөл бүрийн халамж, дэмжлэгүүд</li>
-                            </ul>
+                            <P>
+                                Монтермо ХХК-ийн худалдааны болон инженерийн баг таны уул уурхайн бүх хэрэгцээг дээр дурьдсан 
+                                мэдээллийн баазад тулгуурлан дэлхий даяарх үйлдвэрлэгч, ханган нийлүүлэгчдээс тохиромжтой шийдлийг 
+                                гарган нийлүүлэлт, угсралт суурилуулалт болон нийлүүлэлтийн дараах зөвлөгөө үйлчилгээг үзүүлэх боломжтой.
+                            </P>
+                            <img src="../images/services/news4-2.jpg" style="min-width: auto; max-width: 100%; height: auto; margin-top: 20px;">
+                        </div>
+                        <div class="tab-pane" id="employment">
+                            <h3>Суурилуулалт</h3>
+                            <P>
+                                Манай компани уул уурхай, баяжуулалтын компаниудтай хамтран ажилласан арвин туршлагатай бөгөөд шуурхай нийлүүлэлт, 
+                                угсралт суурилуулалтын үйлчилгээгээрээ үйлчдвэрлэлийн эрсдэлийг бууруулах, 
+                                бодит гүйцэтгэлийг нэмэгдүүлэхийг ямагт зорин ажилладаг.
+                            </P>
                             <br>
-                            <strong>НЭЭЛТТЭЙ АЖЛЫН БАЙРАНД ТАВИГДАХ НИЙТЛЭГ ШААРДЛАГА:</strong>
-                            <ul>
-                                <li>Бие даан бүтээлчээр сэтгэдэг, идэвхи санаачлагатай, багаар ажиллах чадвартай</li>
-                                <li>Хариуцлагатай, ажлын ачаалал даах чадвартай</li>
-                                <li>Цаашид тогтвор суурьшилтай ажиллах</li>
-                                <li>Харилцааны өндөр чадвар, хувийн зохион байгуулалт, цагийн менежмент сайтай</li>
-                                <li>Англи хэлний өндөр мэдлэгтэй</li>
-                                <li>Компьютерийн хэрэглээний программуудыг бүрэн эзэмшсэн</li>
-                            </ul>
+                            <P>
+                                Бид харилцагчидтайгаа бизнесийн амжилттай урт удаан харилцааг хөгжүүлэн ажилладаг ба таны бүхий л хүсэлтийг хүлээн 
+                                авахад бэлэн байдаг. Бүх төрлийн өргөн сонголттой бүтээгдэхүүнүүддээ өрсөлдөхүйц үнэ санал болгодог ба Монгол 
+                                улсын нутаг дэвсгэрт дурын цэгт тээвэрлэн, угралт суурилуулалтын ажлыг өндөр чанартайгаар гүйцэтгэж байна. 
+                            </P>
+                            <img src="../images/services/halo_service_01.jpg" style="min-width: auto; max-width: 100%; height: auto; margin-top: 20px;">
                         </div>
-                        <div class="tab-pane <?php if ($tab_c==1) echo "active"; ?>" id="job">
-                            Нээлттэй ажлын байр байхгүй байна.
-                        </div>
-                        <div class="tab-pane <?php if ($tab_c==2) echo "active"; ?>" id="employment">
-                        </div>
-                        <div class="tab-pane <?php if ($tab_c==3) echo "active"; ?>" id="jobapp">
+                        <!-- <div class="tab-pane" id="jobapp">
                             Дараах ажлын байрны анкетыг бөглөөд <a href="mailto:hr@montermo.com">hr@montermo.com</a> хаяг руу илгээнэ үү.
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 

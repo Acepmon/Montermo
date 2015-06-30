@@ -26,8 +26,7 @@ http://www.templatemo.com/preview/templatemo_409_travel
         <link rel="stylesheet" href="../css/templatemo_misc.css">
         <link rel="stylesheet" href="../css/templatemo_style.css">
         <link rel="stylesheet" href="../css/custom.css">
-
-        <link rel="icon" type="image/png" href="../images/favicon.png" />
+        <link rel="stylesheet" href="../css/mon_arial.css">
 
         <script src="../js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
     </head>
@@ -267,7 +266,7 @@ http://www.templatemo.com/preview/templatemo_409_travel
                         <div class="widget-item">
                             <h3 class="widget-title"><a href="news.php">Шинэ мэдээ</a></h3>
                             <?php
-                                $db->query("select * from news where news_lang = 'english' order by news_id desc limit 4");
+                                $db->query("select * from news where news_lang = 'mongolian' order by news_id desc limit 4");
                                 foreach($db->resultset() as $res) {
                                     ?>
                                     <div class="post-small">

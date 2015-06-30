@@ -25,9 +25,8 @@ http://www.templatemo.com/preview/templatemo_409_travel
         <link rel="stylesheet" href="../css/templatemo_misc.css">
         <link rel="stylesheet" href="../css/templatemo_style.css">
         <link rel="stylesheet" href="../css/custom.css">
-	   <link rel="stylesheet" href="../bxslider/jquery.bxslider.css">
-    
-        <link rel="icon" type="image/png" href="../images/favicon.png" />
+	<link rel="stylesheet" href="../bxslider/jquery.bxslider.css">
+    <link rel="stylesheet" href="../css/mon_arial.css">
         
 
         <script src="../js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
@@ -74,33 +73,27 @@ http://www.templatemo.com/preview/templatemo_409_travel
                             <div class="row">
                                 <?php echo $brand['brand_description']; ?>
                             </div>
-                            
-                            <?php
-                                $db->query("select * from products where brands_brand_id = :brand_id");
-                                $db->bind(":brand_id", $brand['brand_id']);
-                                $res = $db->resultset();
-                                $broke = break_array($res, 2);
-                                
-                                foreach ($broke as $r) {
-                                    echo "<div class='row'>";
-                                    // echo "<h4>".$r['product_name']."</h4>";
-                                    // echo "<p>".$r['product_description']."</p>";
-                                    foreach ($r as $br) {    
+                            <div class="row">
+				<div class="slider-container">
+                                <ul class="bxslider">
+                                <?php
+                                    $db->query("select * from products where brands_brand_id = :brand_id");
+                                    $db->bind(":brand_id", $brand['brand_id']);
+                                    $res = $db->resultset();
+                                    foreach ($res as $r) {
+                                        echo "<h4>".$r['product_name']."</h4>";
+                                        echo "<p>".$r['product_description']."</p>";
                                         $db->query("select * from product_img where products_product_id = :product_id");
-                                        $db->bind(":product_id", $br['product_id']);
+                                        $db->bind(":product_id", $r['product_id']);
                                         $results = $db->resultset();
                                         foreach ($results as $img) {
-                                            echo "<div class='col-sm-5 brand-product-cell'>";
-                                            echo "<img src='../images/brand_images/brand_".$brand['brand_id']."/products/".$img['img_url']."'>";
-                                            echo "<p><strong>".$br['product_name']."</strong>: ".$br['product_description']."</p>";
-                                            echo "</div>";
+                                            echo "<img src='../images/brand_images/brand_".$brand['brand_id']."/products/".$img['img_url']."' class='img-responsive'>";
                                         }
                                     }
-                                    echo "</div>";
-                                }
-                            ?>
-
-
+                                ?>
+				</ul>
+				</div>
+                            </div>
                             <div class="row">
                                 <a href="products.php" class="btn btn-primary">Буцах</a>
                             </div>
@@ -113,33 +106,11 @@ http://www.templatemo.com/preview/templatemo_409_travel
                 <div class="col-md-4">
 
                     <!-- Side Widget Well -->
-                    <div class="panel panel-default aside-brands">
-                        <div class="panel-heading"><h4>Глобал Брэндүүд</h4></div>
-                        <ul class="list-group">
-                            <?php
-                            $db = new db\Connector();
-                            $db->query("select * from brands where brand_lang = 'mongolian' AND brand_id != :id");
-                            $db->bind(":id", $brands_id);
-                            $result = $db->resultset();
-                            shuffle($result);
-                            foreach ($result as $res) {
-                            ?>
-                            
-                            <li class="list-group-item">
-                                <a href="brandsSpecific.php?brands_id=<?php echo $res['brand_id']; ?>">
-                                <div class="col-sm-6">
-                                    <img src="../images/brand_images/<?php echo $res['brand_logo']; ?>" alt="">
-                                </div>
-                                <div class="col-sm-6">
-                                    <p><?php echo $res['brand_short_desc']; ?></p>
-                                </div>
-                                <div class="clearfix"></div>
-                                </a>
-                            </li>
-                            <?php
-                            }
-                            ?>
-                        </ul>
+                    <div class="well">
+                        <h4>ТАНЫ БАЯЖУУЛАЛТЫН ХЭРЭГЦЭЭГ ЦОГЦООР НЬ</h4>
+                        <p>
+                        Утас: (976) - 70001563  <br> Имэйл: sales@montermo.com
+                        </p>
                     </div>
 
                 </div>  

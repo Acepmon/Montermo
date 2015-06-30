@@ -156,25 +156,47 @@
 
 
             <div class="navbar-default sidebar" role="navigation">
+
                 <div class="sidebar-nav navbar-collapse">
+
                     <ul class="nav" id="side-menu">
+
                         <li>
+
                             <a href="index.php">Dashboard</a>
+
                         </li>
+
                         <li>
+
                             <a href="news.php">News</a>
+
                         </li>
+
                         <li>
+
                             <a href="brand.php">Brands</a>
+
                         </li>
+
                         <li>
+
                             <a href="product.php">Product</a>
+
                         </li> 
+
                         <li>
+
                             <a href="inbox.php">Inbox</a>
+
                         </li>
+
                     </ul>
+
                 </div>
+
+                <!-- /.sidebar-collapse -->
+
             </div>
 
             <!-- /.navbar-static-side -->

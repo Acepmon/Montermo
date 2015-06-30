@@ -13,7 +13,6 @@
 	
 	<div class="row">
 		<div class="col-md-12 col-sm-12">
-
 			
 			<?php 
 				$db = new db\Connector();
@@ -23,7 +22,7 @@
 			?>
 			<table class="footerTable pull-left" width="50%">
 				<tr>
-					<th colspan="2" scope="col">Глобал Брэндүүд</th>
+					<th colspan="2" scope="col">Манай Брэндүүд</th>
 				</tr>
 				<?php
 				foreach ($res as $r) {
@@ -48,23 +47,24 @@
 				</tr>
 				<tr>
 					<td><a href="about.php?tab=story">Бидний түүх</a></td>
-					<td><a href="careers.php?tab=life">Монтермо дахь амьдрал</a></td>
+					<td><a href="careers.php?tab=life">Техник үйлчилгээ</a></td>
 					<td><a href="contact.php?tab=send">Мессеж илгээх</a></td>
 				</tr>
 				<tr>
 					<td><a href="about.php?tab=values">Бидний үнэт зүйлс</a></td>
-					<td><a href="careers.php?tab=job">Нээлттэй ажлын байр</a></td>
+					<td><a href="careers.php?tab=job">Зөвлөгөө</a></td>
 					<td><a href="contact.php?tab=cust">Харилцагчийн үйлчилгээ</a></td>
 					
 				</tr>
 				<tr>
 					<td><a href="about.php?tab=ohse">ХАБЭА</a></td>
-					<td><a href="careers.php?tab=employment">Ажилтан сонгон шалгаруулах</a></td>
+					<td><a href="careers.php?tab=employment">Суурилуулалт</a></td>
 					<td><a href="contact.php?tab=find">Байршил олох</a></td>
 				</tr>
 				<tr>
 					<td><a href="about.php?tab=csr">Нийгмийн хариуцлага</a></td>
-					<td><a href="careers.php?tab=jobapp">Анкет татах</a></td>
+					<td></td>
+					<!-- <td><a href="careers.php?tab=jobapp">Анкет татах</a></td> -->
 					<td></td>
 				</tr>
 				<tr>

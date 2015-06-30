@@ -21,8 +21,6 @@
         <link rel="stylesheet" href="../css/templatemo_style.css">
         <link rel="stylesheet" href="../css/custom.css">
 
-        <link rel="icon" type="image/png" href="../images/favicon.png" />
-
         <script src="../js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
     </head>
     <body>
@@ -80,42 +78,16 @@
             </div>
 
             <div class="col-md-4">
-                
-                <div class="panel panel-default aside-brands">
-                    <div class="panel-heading"><h4>Other news</h4></div>
-                    <ul class="list-group">
-                    <?php
-                        $db = new db\Connector();
-                        $db->query("select * from news where news_lang = 'english' AND news_id != :id");
-                        $db->bind(":id", $news_id);
-                        $result = $db->resultset();
-                        foreach ($result as $res) {
-                    ?>
-                        <li class="list-group-item">
-                            <a href="newsSpecific.php?news_id=<?php echo $res['news_id']; ?>">
-                                <p>
-                                    <?php echo $res['news_header']; ?>
-                                </p>
-                                <p class="text-right" style="margin-top: 5px;">
-                                    <?php echo $res['news_date']; ?>
-                                </p>
-                            </a>
-                        </li>
-                    <?php
-                    }
-                    ?>
-                    </ul>
-                </div>
-
                 <div class="well">
-                <h4>ONE SOURCE FOR YOUR BENEFICATION NEEDS</h4>
-                    <p>Tel: (976) - 70001563 <br>
-                    Mail: sales@montermo.com
-                    </p>
+                    <h4>ONE SOURCE FOR YOUR BENEFICATION NEEDS</h4>
+                        <p>Tel: (976) - 70001563 <br>
+                        Mail: sales@montermo.com
+                        </p>
                 </div>
             </div>
+
         </div>
-    </div>
+        <!-- /.row -->
 
     </div>
         </div> <!-- /.middle-content -->

@@ -48,13 +48,6 @@ $(document).ready(function() {
             $(this).nextAll("input").first().removeProp("required");
         }
     });
-    $('[news_edit=change]').change(function() {
-        if ($(this).is(":checked")) {
-            $(this).nextAll("input").first().prop("required", true);
-        } else {
-            $(this).nextAll("input").first().removeProp("required");
-        }
-    });
     // $("#brand_edit").click(function() {
     //     var id = $(this).attr("value");
     //     $.post("../backend/brand_editing.php", {action : "get", id : id}, function(data) {

@@ -21,7 +21,7 @@
 			?>
 			<table class="footerTable pull-left" width="50%">
 				<tr>
-					<th colspan="2" scope="col">Global Brands</th>
+					<th colspan="2" scope="col">Our Brands</th>
 				</tr>
 				<?php
 				foreach ($res as $r) {
@@ -45,23 +45,24 @@
 				</tr>
 				<tr>
 					<td><a href="about.php?tab=story">Our story</a></td>
-					<td><a href="careers.php?tab=life">Life at Montermo</a></td>
+					<td><a href="careers.php?tab=life">Maintenance</a></td>
 					<td><a href="contact.php?tab=send">Send message</a></td>
 				</tr>
 				<tr>
 					<td><a href="about.php?tab=values">Our values</a></td>
-					<td><a href="careers.php?tab=job">Job Posting</a></td>
+					<td><a href="careers.php?tab=job">Consulting</a></td>
 					<td><a href="contact.php?tab=cust">Customer Service</a></td>
 					
 				</tr>
 				<tr>
 					<td><a href="about.php?tab=ohse">OHSE</a></td>
-					<td><a href="careers.php?tab=employment">Employment Procedure</a></td>
+					<td><a href="careers.php?tab=employment">Installation</a></td>
 					<td><a href="contact.php?tab=find">Find a location</a></td>
 				</tr>
 				<tr>
 					<td><a href="about.php?tab=csr">CSR</a></td>
-					<td><a href="careers.php?tab=jobapp">Fill out Job Application</a></td>
+					<td></td>
+					<!-- <td><a href="careers.php?tab=jobapp">Fill out Job Application</a></td> -->
 					<td></td>
 				</tr>
 				<tr>
