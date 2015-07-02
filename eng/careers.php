@@ -19,6 +19,8 @@
         <link rel="stylesheet" href="../css/templatemo_style.css">
         <link rel="stylesheet" href="../css/custom.css">
 
+        <link rel="icon" type="image/png" href="../images/favicon.png" />
+
         <script src="../js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
     </head>
     <body>
@@ -35,29 +37,45 @@
 
         <div class="middle-content" id="aboutus" ng-app="our_company">
             <div class="container">
+
+                <?php
+
+                    $tab = isset($_GET['tab']) ? $_GET['tab'] : "";
+                    $tab_c = 0;
+                    if ($tab == "life") {
+                        $tab_c = 0;
+                    } else if ($tab == "job") {
+                        $tab_c = 1;
+                    } else if ($tab == "employment") {
+                        $tab_c = 2;
+                    } else if ($tab == "jobapp") {
+                        $tab_c = 3;
+                    }
+
+                ?>
             
                 <div class="col-lg-3">
                     <ul class="nav nav-pills nav-stacked" role="tablist">
-                        <li role="presentation" class="active"><a href="#life" aria-controls="life" role="tab" data-toggle="tab">Maintenance</a></li>
-                        <li role="presentation"><a href="#job" role="tab" data-toggle="tab" aria-control="job">Consulting</a></li>
-                        <li role="presentation"><a href="#employment" role="tab" data-toggle="tab" aria-control="employment">Installation</a></li>
-                        <!-- <li role="presentation"><a href="#jobapp" role="tab" data-toggle="tab" aria-control="jobapp">Fill out job Application</a></li> -->
+                        <li role="presentation" <?php if ($tab_c==0) echo "class='active'"; ?>><a href="#life" aria-controls="life" role="tab" data-toggle="tab">Maintenance</a></li>
+                        <li role="presentation" <?php if ($tab_c==1) echo "class='active'"; ?>><a href="#job" role="tab" data-toggle="tab" aria-control="job">Consulting</a></li>
+                        <li role="presentation" <?php if ($tab_c==2) echo "class='active'"; ?>><a href="#employment" role="tab" data-toggle="tab" aria-control="employment">Installation procedure</a></li>
+                        <!-- <li role="presentation" <?php /* if ($tab_c==3) echo "class='active'";*/ ?>><a href="#jobapp" role="tab" data-toggle="tab" aria-control="jobapp">Fill out job Application</a></li> -->
                     </ul>
                 </div>
 
                 <div class="col-lg-9">
                     <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane active" id="life">
-                            <h3>Maintenance</h3>
+                        <div role="tabpanel" class="tab-pane <?php if ($tab_c==0) echo "active"; ?>" id="life">
+                           <h3>Maintenance</h3>
                            <p>Besides providing high-quality equipment and spare parts to our customers, 
                             we always put the best and most reliable service first in our partnership. 
                             Through this, we contribute realistically in ensuring every one of our customers’ 
                             equipment to work well and 
                             without any failures, let the producing operate normally, increase productiveness, 
                             and improve satisfaction.</p>
-                            <img src="../images/services/news4.jpg" style="min-width: auto; max-width: 100%; height: auto; margin-top: 20px;">
+                            <img src="../images/services/news4.JPG" style="min-width: auto; max-width: 100%; height: auto; margin-top: 20px;">
                         </div>
-                        <div class="tab-pane" id="job">
+                        <div class="tab-pane <?php if ($tab_c==1) echo "active"; ?>" id="job">
                             <h3>Consulting</h3>
                             <P>
                                 We have an information center about producers of mining and benefication equipment and spare parts and co-operate 
@@ -71,9 +89,9 @@
                                 installation, after sale and consulting services, finding the best possible solution for your problem from 
                                 the worldwide producers and providers.
                             </P>
-                            <img src="../images/services/news4-2.jpg" style="min-width: auto; max-width: 100%; height: auto; margin-top: 20px;">
+                            <img src="../images/services/news4-2.JPG" style="min-width: auto; max-width: 100%; height: auto; margin-top: 20px;">
                         </div>
-                        <div class="tab-pane" id="employment">
+                        <div class="tab-pane <?php if ($tab_c==2) echo "active"; ?>" id="employment">
                             <h3>Installation</h3>
                             <P>
                                 Our company has the experience of working with mining companies and our goal is to 
@@ -89,7 +107,7 @@
                             </P>
                             <img src="../images/services/halo_service_01.jpg" style="min-width: auto; max-width: 100%; height: auto; margin-top: 20px;">
                         </div>
-                        <!-- <div class="tab-pane" id="jobapp">
+                        <!-- <div class="tab-pane <?php /* if ($tab_c==3) echo "active"; */ ?>" id="jobapp">
                             Please fill out following application and send it to <a href="mailto:hr@montermo.com">hr@montermo.com</a>
                         </div> -->
                     </div>

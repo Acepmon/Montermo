@@ -24,6 +24,8 @@ http://www.templatemo.com/preview/templatemo_409_travel
         <link rel="stylesheet" href="../css/custom.css">
         <link rel="stylesheet" href="../css/mon_arial.css">
 
+        <link rel="icon" type="image/png" href="../images/favicon.png" />
+
         <script src="../js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
     </head>
     <body>
@@ -40,19 +42,35 @@ http://www.templatemo.com/preview/templatemo_409_travel
 
         <div class="middle-content" id="aboutus" ng-app="our_company">
             <div class="container">
+
+                <?php
+
+                    $tab = isset($_GET['tab']) ? $_GET['tab'] : "";
+                    $tab_c = 0;
+                    if ($tab == "life") {
+                        $tab_c = 0;
+                    } else if ($tab == "job") {
+                        $tab_c = 1;
+                    } else if ($tab == "employment") {
+                        $tab_c = 2;
+                    } else if ($tab == "jobapp") {
+                        $tab_c = 3;
+                    }
+
+                ?>
             
                 <div class="col-lg-3">
                     <ul class="nav nav-pills nav-stacked" role="tablist">
-                        <li role="presentation" class="active"><a href="#life" aria-controls="life" role="tab" data-toggle="tab">Техник үйлчилгээ</a></li>
-                        <li role="presentation"><a href="#job" role="tab" data-toggle="tab" aria-control="job">Зөвлөгөө</a></li>
-                        <li role="presentation"><a href="#employment" role="tab" data-toggle="tab" aria-control="employment">Суурилуулалт</a></li>
-                        <!-- <li role="presentation"><a href="#jobapp" role="tab" data-toggle="tab" aria-control="jobapp">Анкет татах</a></li> -->
+                        <li role="presentation" <?php if ($tab_c==0) echo "class='active'"; ?>><a href="#life" aria-controls="life" role="tab" data-toggle="tab">Техник үйлчилгээ</a></li>
+                        <li role="presentation" <?php if ($tab_c==1) echo "class='active'"; ?>><a href="#job" role="tab" data-toggle="tab" aria-control="job">Зөвлөгөө</a></li>
+                        <li role="presentation" <?php if ($tab_c==2) echo "class='active'"; ?>><a href="#employment" role="tab" data-toggle="tab" aria-control="employment">Суурилуулалт</a></li>
+                        <!-- <li role="presentation" <?php /* if ($tab_c==3) echo "class='active'"; */ ?>><a href="#jobapp" role="tab" data-toggle="tab" aria-control="jobapp">Анкет татах</a></li> -->
                     </ul>
                 </div>
 
                 <div class="col-lg-9">
                     <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane active" id="life">
+                        <div role="tabpanel" class="tab-pane <?php if ($tab_c==0) echo "active"; ?>" id="life">
                             <h3>Техник үйлчилгээ</h3>
                             <P>
                                 Бид харилцагчиддаа өндөр чанар бүхий сэлбэг хэрэгсэл, эд анги нийлүүлэхээс 
@@ -60,9 +78,9 @@ http://www.templatemo.com/preview/templatemo_409_travel
                                 Ингэснээр харилцагч бүрийнхээ тоног төхөөрөмжийн тасралтгүй ажиллагааг хангах, үйлдвэрлэлийг 
                                 хэвийн явуулах, бүтээмжийг нэмэгдүүлэх, сэтгэл ханамжийг дээшлүүлэхэд бодит хувь нэмэр оруулдаг юм. 
                             </P>
-                            <img src="../images/services/news4.jpg" style="min-width: auto; max-width: 100%; height: auto; margin-top: 20px;">
+                            <img src="../images/services/news4.JPG" style="min-width: auto; max-width: 100%; height: auto; margin-top: 20px;">
                         </div>
-                        <div class="tab-pane" id="job">
+                        <div class="tab-pane <?php if ($tab_c==1) echo "active"; ?>" id="job">
                             <h3>Зөвлөгөө</h3>
                             <P>
                                 Бид уул уурхайн баяжуулах салбарын тоног төхөөрөмж, сэлбэг хэрэгсэл үйлдвэрлэгчдийн талаар 
@@ -76,9 +94,9 @@ http://www.templatemo.com/preview/templatemo_409_travel
                                 мэдээллийн баазад тулгуурлан дэлхий даяарх үйлдвэрлэгч, ханган нийлүүлэгчдээс тохиромжтой шийдлийг 
                                 гарган нийлүүлэлт, угсралт суурилуулалт болон нийлүүлэлтийн дараах зөвлөгөө үйлчилгээг үзүүлэх боломжтой.
                             </P>
-                            <img src="../images/services/news4-2.jpg" style="min-width: auto; max-width: 100%; height: auto; margin-top: 20px;">
+                            <img src="../images/services/news4-2.JPG" style="min-width: auto; max-width: 100%; height: auto; margin-top: 20px;">
                         </div>
-                        <div class="tab-pane" id="employment">
+                        <div class="tab-pane <?php if ($tab_c==2) echo "active"; ?>" id="employment">
                             <h3>Суурилуулалт</h3>
                             <P>
                                 Манай компани уул уурхай, баяжуулалтын компаниудтай хамтран ажилласан арвин туршлагатай бөгөөд шуурхай нийлүүлэлт, 
@@ -93,7 +111,7 @@ http://www.templatemo.com/preview/templatemo_409_travel
                             </P>
                             <img src="../images/services/halo_service_01.jpg" style="min-width: auto; max-width: 100%; height: auto; margin-top: 20px;">
                         </div>
-                        <!-- <div class="tab-pane" id="jobapp">
+                        <!-- <div class="tab-pane <?php /* if ($tab_c==3) echo "active"; */ ?>" id="jobapp">
                             Дараах ажлын байрны анкетыг бөглөөд <a href="mailto:hr@montermo.com">hr@montermo.com</a> хаяг руу илгээнэ үү.
                         </div> -->
                     </div>

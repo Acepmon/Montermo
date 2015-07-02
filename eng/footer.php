@@ -72,43 +72,6 @@
 				</tr>
 			</table>
 			<div class="clearfix"></div>
-			<!-- <table class="footerTable" width="100%" border="0" cellspacing="5">
-				
-			  <tr>
-				<th colspan="2" scope="col">Global Brands</a></th>
-				<th width="18%" scope="col">Our Company</a></th>
-				<th width="20%" scope="col">Careers</a></th>
-				<th width="15%" scope="col">Contact us</a></th>
-			  </tr>
-			  <tr>
-				<td width="24%"><a href="">FLOWROX</a></td>
-				<td width="23%"><a href="">PUDA</a></td>
-				<td><a href="about.php">Our story</a></td>
-				<td><a href="careers.php">Life at Montermo</a></td>
-				<td><a href="contact.php">Send message</a></td>
-			  </tr>
-			  <tr>
-				<td><a href="">CiDRA</a></td>
-				<td><a href="">GEHO</a></td>
-				<td><a href="about.php">Our values</a></td>
-				<td><a href="careers.php">Job Posting</a></td>
-				<td><a href="contact.php">Customer Service</a></td>
-			  </tr>
-			  <tr>
-				<td><a href="">MULTOTEC</a></td>
-				<td><a href="">KAMAT</a></td>
-				<td><a href="about.php">OHSE</a></td>
-				<td><a href="careers.php">Employment Procedure</a></td>
-				<td><a href="contact.php">Find a location</a></td>
-			  </tr>
-			  <tr>
-				<td><a href="">FLYGT</a></td>
-				<td><a href="">TYCO</a></td>
-				<td><a href="about.php">CSR</a></td>
-				<td><a href="careers.php">Fill out Job Application</a></td>
-				<td>&nbsp;</td>
-			  </tr>
-			</table> -->
 		</div>
 	</div>
 	

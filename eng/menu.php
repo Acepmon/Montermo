@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 require_once "../admin/backend/db.php";
 require_once "../admin/backend/helper.php";

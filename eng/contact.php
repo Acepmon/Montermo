@@ -17,6 +17,8 @@
         <link rel="stylesheet" href="../css/templatemo_misc.css">
         <link rel="stylesheet" href="../css/templatemo_style.css">
 
+        <link rel="icon" type="image/png" href="../images/favicon.png" />
+
         <script src="../js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
     </head>
     <body>
@@ -36,13 +38,14 @@
                 <div class="row">
                     <div class="col-md-7 col-sm-6 map-wrapper">
                         <h3 class="widget-title">Our Address</h3>
+                        <h5>Montermo LLC</h5>
                         <div class="contact-infos">						
                             <ul>
                                 <li>Khonkhor-147a, Songinokhairkhan District Khoroo -11, Ulaanbaatar city, Mongolia</li>
                                 <li>P.O.box-089, Ulaanbaatar-14253</li>
                                 <li><br> Tel: (976) - 70001563 <br> Fax: (976) - 70001563</li>
                                 <li>Email: <a href="mailto:ivshin@montermo.com">ivshin@montermo.com, </a><a href="mailto:sales@montermo.com">sales@montermo.com</a></li>
-                                <li>Website: <a href="http://www.montermo.com">Montermo LLC</a></li>
+                                <li>Website: <a href="http://www.montermo.com">www.montermo.com</a></li>
                             </ul>
                         </div>
                     </div>

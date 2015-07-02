@@ -28,6 +28,8 @@ http://www.templatemo.com/preview/templatemo_409_travel
         <link rel="stylesheet" href="../css/custom.css">
         <link rel="stylesheet" href="../css/mon_arial.css">
 
+        <link rel="icon" type="image/png" href="../images/favicon.png" />
+
         <script src="../js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
     </head>
     <body>
@@ -106,118 +108,6 @@ http://www.templatemo.com/preview/templatemo_409_travel
                         }
                     ?>
 
-                    <!-- <div class="list-item">
-                        <div class="list-thumb">
-                            <div class="title">
-                                <h4>FLOWROX</h4>
-                            </div>
-                            <img src="../images/brands/flowrox/flowrox_logo.jpg" alt="Flowrox">
-                        </div>
-                        <div class="list-content">
-                            <h5></h5>
-                            <span>Хаалт, насос, шийдлүүд</span>
-                            <a href="brandsSpecific.php?brands_id=1" class="price-btn">Цааш унших</a>
-                        </div>
-                    </div>
-
-                    <div class="list-item">
-                        <div class="list-thumb">
-                            <div class="title">
-                                <h4>CiDra</h4>
-                            </div>
-                            <img src="../images/brands/cidra/cidra_logo_downgraded.jpg" alt="CiDra">
-                        </div>
-                        <div class="list-content">
-                            <h5></h5>
-                            <span>Шугам хоолойн урсгал мэдрэгч ба элэгдлийн түвшин тодорхойлогч</span>
-                            <a href="brandsSpecific.php?brands_id=2" class="price-btn">Цааш унших</a>
-                        </div>
-                    </div>
-
-                    <div class="list-item">
-                        <div class="list-thumb">
-                            <div class="title">
-                                <h4>Multotec</h4>
-                            </div>
-                            <img src="../images/brands/multotec/multotec_logo.gif" alt="Multotec">
-                        </div>
-                        <div class="list-content">
-                            <h5></h5>
-                            <span>Баяжуулах үйлдвэрийн тоног төхөөрөмж</span>
-                            <a href="brandsSpecific.php?brands_id=3" class="price-btn">Цааш унших</a>
-                        </div>
-                    </div>
-
-                    <div class="list-item">
-                        <div class="list-thumb">
-                            <div class="title">
-                                <h4>Flygt</h4>
-                            </div>
-                            <img src="../images/brands/flygt/flygt_logo.png" alt="Flygt">
-                        </div>
-                        <div class="list-content">
-                            <h5></h5>
-                            <span>Насос, холигч, ус шавхах төхөөрөмж, хяналт, шинжилгээний төхөөрөмжүүд</span>
-                            <a href="brandsSpecific.php?brands_id=4" class="price-btn">Цааш унших</a>
-                        </div>
-                    </div>
-
-                    <div class="list-item">
-                        <div class="list-thumb">
-                            <div class="title">
-                                <h4>Puda</h4>
-                            </div>
-                            <img src="../images/brands/puda/puda_logo.jpg" alt="Puda">
-                        </div>
-                        <div class="list-content">
-                            <h5></h5>
-                            <span>Хэмжилт ба савлалтын тоног төхөөрөмж</span>
-                            <a href="brandsSpecific.php?brands_id=5" class="price-btn">Цааш унших</a>
-                        </div>
-                    </div>
-
-                    <div class="list-item">
-                        <div class="list-thumb">
-                            <div class="title">
-                                <h4>Geho</h4>
-                            </div>
-                            <img src="../images/brands/geho/geho_logo.gif" alt="Geho">
-                        </div>
-                        <div class="list-content">
-                            <h5></h5>
-                            <span>PD Slurry pumps</span>
-                            <a href="brandsSpecific.php?brands_id=6" class="price-btn">Цааш унших</a>
-                        </div>
-                    </div>
-
-                    <div class="list-item">
-                        <div class="list-thumb">
-                            <div class="title">
-                                <h4>Kamat</h4>
-                            </div>
-                            <img src="../images/brands/kamat/kamat_logo.gif" alt="Kamat">
-                        </div>
-                        <div class="list-content">
-                            <h5></h5>
-                            <span>High pressure plunger pumps and pump systems</span>
-                            <a href="brandsSpecific.php?brands_id=7" class="price-btn">Цааш унших</a>
-                        </div>
-                    </div>
-
-                    <div class="list-item">
-                        <div class="list-thumb">
-                            <div class="title">
-                                <h4>Tyco</h4>
-                            </div>
-                            <img src="../images/brands/tyco/tyco_logo.jpg" alt="Tyco">
-                        </div>
-                        <div class="list-content">
-                            <h5></h5>
-                            <span>Actuators & Controls</span>
-                            <a href="brandsSpecific.php?brands_id=8" class="price-btn">Цааш унших</a>
-                        </div>
-                    </div> -->
-
                 </div> <!-- /.our-listing -->
             </div> <!-- /.row -->
         </div> <!-- /.container -->
@@ -249,7 +139,7 @@ http://www.templatemo.com/preview/templatemo_409_travel
                     
                     <div class="col-md-4"><!-- third column -->
                         <div class="widget-item">
-                            <h3 class="widget-title"><a href="careers.php">Ажлын байр</a></h3>
+                            <h3 class="widget-title"><a href="about.php?tab=careers">Ажлын байр</a></h3>
                             <div class="sample-thumb">
                                 <img src="../images/event_2.jpg" alt="Special Eve" title="Special Eve">
                             </div> <!-- /.sample-thumb -->

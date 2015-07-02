@@ -28,6 +28,8 @@ http://www.templatemo.com/preview/templatemo_409_travel
         <link rel="stylesheet" href="../css/custom.css">
         <link rel="stylesheet" href="../css/mon_arial.css">
 
+        <link rel="icon" type="image/png" href="../images/favicon.png" />
+
         <script src="../js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
     </head>
     <body>
@@ -89,16 +91,39 @@ http://www.templatemo.com/preview/templatemo_409_travel
             <!-- Blog Sidebar Widgets Column -->
             <div class="col-md-4">
 
-                <!-- Side Widget Well -->
+                <div class="panel panel-default aside-brands">
+                    <div class="panel-heading"><h4>Бусад мэдээ</h4></div>
+                    <ul class="list-group">
+                    <?php
+                        $db = new db\Connector();
+                        $db->query("select * from news where news_lang = 'mongolian' AND news_id != :id");
+                        $db->bind(":id", $news_id);
+                        $result = $db->resultset();
+                        foreach ($result as $res) {
+                    ?>
+                        <li class="list-group-item">
+                            <a href="newsSpecific.php?news_id=<?php echo $res['news_id']; ?>">
+                                <p>
+                                    <?php echo $res['news_header']; ?>
+                                </p>
+                                <p class="text-right" style="margin-top: 5px;">
+                                    <?php echo $res['news_date']; ?>
+                                </p>
+                            </a>
+                        </li>
+                    <?php
+                    }
+                    ?>
+                    </ul>
+                </div>
+
                 <div class="well">
                     <h4>ТАНЫ БАЯЖУУЛАЛТЫН ХЭРЭГЦЭЭГ ЦОГЦООР НЬ</h4>
                         <p>
                         Утас: (976) - 70001563  <br> Имэйл: sales@montermo.com
                         </p>
                 </div>
-
             </div>
-
         </div>
         <!-- /.row -->
 

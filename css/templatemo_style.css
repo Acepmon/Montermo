@@ -28,6 +28,47 @@ ol,ul {
     list-style: none;
 }
 
+.brand-product-cell {
+    padding: 0px;
+    border: 1px solid lightgray;
+    min-height: 200px;
+    max-height: 200px;
+    margin: 10px;
+}
+.brand-product-cell img {
+    width: 100%;
+    min-height: 200px;
+    max-height: 200px;
+    margin: 0px !important;
+    padding: 0px;
+}
+.brand-product-cell p {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    bottom: -10px;
+    z-index: 3;
+    color: white;
+    background-color: rgba(0, 0, 1, 0.5);
+}
+.aside-brands {
+    min-height: 150px; 
+    max-height: 500px; 
+    overflow: auto;
+}
+.aside-brands
+.aside-brands ul li {
+    padding: 0px;
+}
+.aside-brands ul li img {
+    width: 100%;
+    height: auto;
+}
+.aside-brands ul li:hover {
+    background-color: #F2F2F2;
+}
+
 .customHeader {
 	text-align: center;
 	color: #1B86C7;

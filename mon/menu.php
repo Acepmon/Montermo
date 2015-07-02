@@ -2,7 +2,7 @@
 
 require_once "../admin/backend/db.php";
 require_once "../admin/backend/helper.php";
-
+    
 $current_page = basename($_SERVER['PHP_SELF']);
 $page = 1;
 if ($current_page == "products.php")
@@ -33,7 +33,7 @@ else
             <div class="col-md-4 col-sm-6 col-xs-10">
                 <div class="logo">
                     <a href="../mon/">
-                        <img src="../images/logo.png" alt="travel html5 template" title="travel html5 template">
+                        <img src="../images/montermo-mon-scaled.png" alt="travel html5 template" title="travel html5 template">
                     </a>
                 </div> <!-- /.logo -->
             </div> <!-- /.col-md-4 -->

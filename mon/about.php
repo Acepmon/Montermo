@@ -24,6 +24,8 @@ http://www.templatemo.com/preview/templatemo_409_travel
         <link rel="stylesheet" href="../css/custom.css">
         <link rel="stylesheet" href="../css/mon_arial.css">
 
+        <link rel="icon" type="image/png" href="../images/favicon.png" />
+
         <script src="../js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
     </head>
     <body>
@@ -40,20 +42,38 @@ http://www.templatemo.com/preview/templatemo_409_travel
 
         <div class="middle-content" id="aboutus">
             <div class="container">
+
+                <?php
+
+                    $tab = isset($_GET['tab']) ? $_GET['tab'] : "";
+                    $tab_c = 0;
+                    if ($tab == "story") {
+                        $tab_c = 0;
+                    } else if ($tab == "values") {
+                        $tab_c = 1;
+                    } else if ($tab == "ohse") {
+                        $tab_c = 2;
+                    } else if ($tab == "csr") {
+                        $tab_c = 3;
+                    } else if ($tab == "careers") {
+                        $tab_c = 4;
+                    }
+
+                ?>
             
                 <div class="col-lg-3">
                     <ul class="nav nav-pills nav-stacked" role="tablist">
-                        <li role="presentation" class="active"><a href="#story" aria-controls="story" role="tab" data-toggle="tab">Бидний түүх</a></li>
-                        <li role="presentation"><a href="#values" aria-controls="values" role="tab" data-toggle="tab">Бидний үнэт зүйлс</a></li>
-                        <li role="presentation"><a href="#ohse" aria-controls="ohse" role="tab" data-toggle="tab">ХАБЭА</a></li>
-                        <li role="presentation"><a href="#crs" aria-controls="crs" role="tab" data-toggle="tab">Нийгмийн хариуцлага</a></li>
-                        <li role="presentation"><a href="#careers" aria-controls="careers" role="tab" data-toggle="tab">Ажлын байр</a></li>
+                        <li role="presentation" <?php if ($tab_c==0) echo "class='active'"; ?>><a href="#story" aria-controls="story" role="tab" data-toggle="tab">Бидний түүх</a></li>
+                        <li role="presentation" <?php if ($tab_c==1) echo "class='active'"; ?>><a href="#values" aria-controls="values" role="tab" data-toggle="tab">Бидний үнэт зүйлс</a></li>
+                        <li role="presentation" <?php if ($tab_c==2) echo "class='active'"; ?>><a href="#ohse" aria-controls="ohse" role="tab" data-toggle="tab">ХАБЭА</a></li>
+                        <li role="presentation" <?php if ($tab_c==3) echo "class='active'"; ?>><a href="#crs" aria-controls="crs" role="tab" data-toggle="tab">Нийгмийн хариуцлага</a></li>
+                        <li role="presentation" <?php if ($tab_c==4) echo "class='active'"; ?>><a href="#careers" aria-controls="careers" role="tab" data-toggle="tab">Ажлын байр</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-9">
                     <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane active" id="story">
+                        <div role="tabpanel" class="tab-pane <?php if ($tab_c==0) echo "active"; ?>" id="story">
                             <h3>Бидний түүх</h3>
                             <p>Монтермо ХХК нь уул уурхай, баяжуулах үйлдвэр болон эрчим хүчний 
                                 салбарын боловсруулах ба баяжуулах үйлдвэрийн үндсэн дамжлагуудад 
@@ -65,14 +85,14 @@ http://www.templatemo.com/preview/templatemo_409_travel
                                 баяжуулах процесст өргөн хэрэглэгддэг.</p>
                                 <img src="../images/about_us/Our story.jpg" style="min-width: auto; max-width: 100%; height: auto; margin-top: 20px;">
                         </div>
-                        <div role="tabpanel" class="tab-pane" id="values">
-                            <h3>Бидний үнэт зүйлс</h3>
-				<p>
-					АЛСЫН ХАРАА: </br>
+                        <div role="tabpanel" class="tab-pane <?php if ($tab_c==1) echo "active"; ?>" id="values">
+				            <h3>Бидний үнэт зүйлс</h3>
+                <p>
+                    АЛСЫН ХАРАА: </br>
 Таны баяжуулалтын хэрэгцээг цогцоор нь
-				</p>
-				</br>
-				<p>ЭРХЭМ ЗОРИЛГО: </br>
+                </p>
+                </br>
+                <p>ЭРХЭМ ЗОРИЛГО: </br>
 Хүний хөгжил, бизнесийн боломж  бүрийг нээж салбарын жишгийг бид тодорхойлно
                             </p>
                             <br>
@@ -86,7 +106,7 @@ http://www.templatemo.com/preview/templatemo_409_travel
                             </ul>
                             <img src="../images/about_us/our values.jpg" style="min-width: auto; max-width: 100%; height: auto; margin-top: 20px;">
                         </div>
-                        <div role="tabpanel" class="tab-pane" id="ohse">
+                        <div role="tabpanel" class="tab-pane <?php if ($tab_c==2) echo "active"; ?>" id="ohse">
                             <h3>ХӨДӨЛМӨРИЙН АЮУЛГҮЙ БАЙДАЛ ЭРҮҮЛ АХУЙ</h3>
                             <p>
                                 Монтермо ХХК нь “Компанийн хөдөлмөрийн аюулгүй байдал, эрүүл ахуйн 
@@ -100,9 +120,9 @@ http://www.templatemo.com/preview/templatemo_409_travel
                                 шаардлагуудад нийцсэн, байгаль орчинд элдэв сөрөг нөлөөгүй, үйл ажиллагаа 
                                 явуулдаг.
                             </p>
-                            <img src="../images/about_us/OHSE.jpg" style="min-width: auto; max-width: 100%; height: auto; margin-top: 20px;">  
+                            <img src="../images/about_us/OHSE.jpg" style="min-width: auto; max-width: 100%; height: auto; margin-top: 20px;"> 
                         </div>
-                        <div role="tabpanel" class="tab-pane" id="crs">
+                        <div role="tabpanel" class="tab-pane <?php if ($tab_c==3) echo "active"; ?>" id="crs">
                             <h3>Нийгмийн хариуцлага</h3>
                             <p>Монтермо ХХК нь бизнесийн бүхий л үйл ажиллагаандаа ил тод, нийгмийн 
                                 хариуцлагатай, бизнесийн ёс зүйтэй байдлыг эрхэмлэн ажилладаг ба 
@@ -117,7 +137,7 @@ http://www.templatemo.com/preview/templatemo_409_travel
                             </ul>
                             <img src="../images/about_us/Corporate-Social-Responsibility.jpg" style="min-width: auto; max-width: 100%; height: auto; margin-top: 20px;">
                         </div>
-                        <div role="tabpanel" class="tab-pane" id="careers">
+                        <div role="tabpanel" class="tab-pane <?php if ($tab_c==4) echo "active"; ?>" id="careers">
                             <h3>Ажлын байр</h3>
                             <p>
                                 Монтермо ХХК нь ажил олгох болон сонгон шалгаруулах явцад ижил 
@@ -147,8 +167,8 @@ http://www.templatemo.com/preview/templatemo_409_travel
                             </ul>
                             <br>
                             Та манайд ажиллах сонирхолтой байвал <a href="mailto:hr@montermo.com">hr@montermo.com</a> хаяг руу CV-гээ илгээнэ үү.
-                            <img src="../images/services/Job posting.jpg"  style="min-width: auto; max-width: 100%; height: auto; margin-top: 20px;">
-
+                            <img src="../images/services/Job posting.JPG"  style="min-width: auto; max-width: 100%; height: auto; margin-top: 20px;">
+                            
                         </div>
                     </div>
                 </div>
